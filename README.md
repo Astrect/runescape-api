@@ -1,5 +1,7 @@
 # RuneScape API
 
+[![Build Status](https://travis-ci.org/Joshua-F/runescape-api.svg?branch=master)](https://travis-ci.org/Joshua-F/runescape-api)
+
 ## Introduction
 
 `runescape-api` is an open-source wrapper, written in [Node.js][nodejs], that allows interaction with the various APIs available for the popular MMORPG [RuneScape][runescape].
