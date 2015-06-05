@@ -1,9 +1,8 @@
 {
   "name": "runescape-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple wrapper for RuneScape APIs written in node.",
   "author": "Joshua Filby <joshuaf@shadowscripts.net>",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Joshua-F/runescape-api"
@@ -16,10 +15,18 @@
   "bugs": {
     "url": "https://github.com/Joshua-F/runescape-api/issues"
   },
-  "homepage": "https://github.com/Joshua-F/runescape-api",
   "dependencies": {
     "promise": "^7.0.1",
     "request": "^2.56.0"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "chai-things": "^0.2.0",
+    "mocha": "^2.2.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
   },
   "license": "MIT"
 }
