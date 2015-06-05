@@ -1,6 +1,6 @@
 # RuneScape API
 
-[![Build Status](https://travis-ci.org/Joshua-F/runescape-api.svg?branch=master)](https://travis-ci.org/Joshua-F/runescape-api)
+[![Build Status](https://travis-ci.org/Joshua-F/runescape-api.svg?branch=master)](https://travis-ci.org/Joshua-F/runescape-api) [![Dependency Status](https://david-dm.org/Joshua-F/runescape-api.svg)](https://david-dm.org/Joshua-F/runescape-api)
 
 ## Introduction
 
