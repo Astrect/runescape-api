@@ -49,8 +49,7 @@
             "urls": {
                 "normal": "http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=",
                 "ironman": "http://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws?player=",
-                "hardcore": "http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player=",
-                "clan": "http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName="
+                "hardcore": "http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player="
             },
             "skills": [
                 "Overall", "Attack", "Defence", 
