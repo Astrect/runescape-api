@@ -1,69 +1,121 @@
 {
-    "rs": {
-        "hiscores": {
-            "urls": {
-                "normal": "http://services.runescape.com/m=hiscore/index_lite.ws?player=",
-                "ironman": "http://services.runescape.com/m=hiscore_ironman/index_lite.ws?player=",
-                "hardcore": "http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player=",
-                "clan": "http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName="
-            },
-            "skills": [
-                "Overall", "Attack", "Defence", 
-                "Strength", "Hitpoints", "Ranged", 
-                "Prayer", "Magic", "Cooking", 
-                "Woodcutting", "Fletching", "Fishing", 
-                "Firemaking", "Crafting", "Smithing", 
-                "Mining", "Herblore", "Agility",
-                "Thieving", "Slayer", "Farming", 
-                "Runecrafting", "Hunter", "Construction",
-                "Summoning", "Dungeoneering", "Divination"
-            ],
-            "activities": [
-                "Bounty Hunter", "B.H. Rogues", "Dominion Tower",
-                "The Crucible", "Castle Wars games", "B.A. Attackers",
-                "B.A. Defenders", "B.A. Collectors", "B.A. Healers",
-                "Duel Tournament", "Mobilising Armies", "Conquest",
-                "Fist of Guthix", "GG: Athletics", "GG: Resource Race",
-                "WE2: Armadyl Lifetime Contribution", "WE2: Bandos Lifetime Contribution", "WE2: Armadyl PvP kills",
-                "WE2: Bandos PvP kills", "Heist Guard Level", "Heist Robber Level",
-                "CFP: 5 game average", "AF15: Cow Tipping", "AF15: Rats killed after the miniquest"
-            ]
-        },
-        "bestiary": {
-            "urls": {
-                "beast": "http://services.runescape.com/m=itemdb_rs/bestiary/beastData.json?beastid=",
-                "beastTerm": "http://services.runescape.com/m=itemdb_rs/bestiary/beastSearch.json?term=",
-                "beastLetter": "http://services.runescape.com/m=itemdb_rs/bestiary/bestiaryNames.json?letter=",
-                "areas": "http://services.runescape.com/m=itemdb_rs/bestiary/areaNames.json",
-                "beastArea": "http://services.runescape.com/m=itemdb_rs/bestiary/areaBeasts.json?identifier=",
-                "slayerCats": "http://services.runescape.com/m=itemdb_rs/bestiary/bestiary/slayerCatNames.json",
-                "beastSlayer": "http://services.runescape.com/m=itemdb_rs/bestiary/slayerBeasts.json?identifier=",
-                "weaknesses": "http://services.runescape.com/m=itemdb_rs/bestiary/bestiary/weaknessNames.json",
-                "beastWeekend": "http://services.runescape.com/m=itemdb_rs/bestiary/weaknessBeasts.json?identifier=",
-                "beastLevel": "http://services.runescape.com/m=itemdb_rs/bestiary/levelGroup.json?identifier="
-            }
-        }
+  "rs": {
+    "hiscores": {
+      "urls": {
+        "normal": "http://services.runescape.com/m=hiscore/index_lite.ws?player=",
+        "ironman": "http://services.runescape.com/m=hiscore_ironman/index_lite.ws?player=",
+        "hardcore": "http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player=",
+        "clan": "http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName="
+      },
+      "skills": [
+        "Overall",
+        "Attack",
+        "Defence",
+        "Strength",
+        "Hitpoints",
+        "Ranged",
+        "Prayer",
+        "Magic",
+        "Cooking",
+        "Woodcutting",
+        "Fletching",
+        "Fishing",
+        "Firemaking",
+        "Crafting",
+        "Smithing",
+        "Mining",
+        "Herblore",
+        "Agility",
+        "Thieving",
+        "Slayer",
+        "Farming",
+        "Runecrafting",
+        "Hunter",
+        "Construction",
+        "Summoning",
+        "Dungeoneering",
+        "Divination"
+      ],
+      "activities": [
+        "Bounty Hunter",
+        "B.H. Rogues",
+        "Dominion Tower",
+        "The Crucible",
+        "Castle Wars games",
+        "B.A. Attackers",
+        "B.A. Defenders",
+        "B.A. Collectors",
+        "B.A. Healers",
+        "Duel Tournament",
+        "Mobilising Armies",
+        "Conquest",
+        "Fist of Guthix",
+        "GG: Athletics",
+        "GG: Resource Race",
+        "WE2: Armadyl Lifetime Contribution",
+        "WE2: Bandos Lifetime Contribution",
+        "WE2: Armadyl PvP kills",
+        "WE2: Bandos PvP kills",
+        "Heist Guard Level",
+        "Heist Robber Level",
+        "CFP: 5 game average",
+        "AF15: Cow Tipping",
+        "AF15: Rats killed after the miniquest"
+      ]
     },
-    "osrs": {
-        "hiscores": {
-            "urls": {
-                "normal": "http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=",
-                "ironman": "http://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws?player=",
-                "hardcore": "http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player="
-            },
-            "skills": [
-                "Overall", "Attack", "Defence", 
-                "Strength", "Hitpoints", "Ranged", 
-                "Prayer", "Magic", "Cooking", 
-                "Woodcutting", "Fletching", "Fishing", 
-                "Firemaking", "Crafting", "Smithing", 
-                "Mining", "Herblore", "Agility",
-                "Thieving", "Slayer", "Farming", 
-                "Runecrafting", "Hunter", "Construction"
-            ],
-            "activities": [
-                "Clues", "Bounty Hunter", "B.H. Rogues"
-            ]
-        }
+    "bestiary": {
+      "urls": {
+        "beast": "http://services.runescape.com/m=itemdb_rs/bestiary/beastData.json?beastid=",
+        "beastTerm": "http://services.runescape.com/m=itemdb_rs/bestiary/beastSearch.json?term=",
+        "beastLetter": "http://services.runescape.com/m=itemdb_rs/bestiary/bestiaryNames.json?letter=",
+        "areas": "http://services.runescape.com/m=itemdb_rs/bestiary/areaNames.json",
+        "beastArea": "http://services.runescape.com/m=itemdb_rs/bestiary/areaBeasts.json?identifier=",
+        "slayerCats": "http://services.runescape.com/m=itemdb_rs/bestiary/bestiary/slayerCatNames.json",
+        "beastSlayer": "http://services.runescape.com/m=itemdb_rs/bestiary/slayerBeasts.json?identifier=",
+        "weaknesses": "http://services.runescape.com/m=itemdb_rs/bestiary/bestiary/weaknessNames.json",
+        "beastWeekend": "http://services.runescape.com/m=itemdb_rs/bestiary/weaknessBeasts.json?identifier=",
+        "beastLevel": "http://services.runescape.com/m=itemdb_rs/bestiary/levelGroup.json?identifier="
+      }
     }
+  },
+  "osrs": {
+    "hiscores": {
+      "urls": {
+        "normal": "http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=",
+        "ironman": "http://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws?player=",
+        "hardcore": "http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player="
+      },
+      "skills": [
+        "Overall",
+        "Attack",
+        "Defence",
+        "Strength",
+        "Hitpoints",
+        "Ranged",
+        "Prayer",
+        "Magic",
+        "Cooking",
+        "Woodcutting",
+        "Fletching",
+        "Fishing",
+        "Firemaking",
+        "Crafting",
+        "Smithing",
+        "Mining",
+        "Herblore",
+        "Agility",
+        "Thieving",
+        "Slayer",
+        "Farming",
+        "Runecrafting",
+        "Hunter",
+        "Construction"
+      ],
+      "activities": [
+        "Clues",
+        "Bounty Hunter",
+        "B.H. Rogues"
+      ]
+    }
+  }
 }
