@@ -76,6 +76,54 @@
         "beastWeekend": "http://services.runescape.com/m=itemdb_rs/bestiary/weaknessBeasts.json?identifier=",
         "beastLevel": "http://services.runescape.com/m=itemdb_rs/bestiary/levelGroup.json?identifier="
       }
+    },
+    "ge": {
+      "urls": {
+        "category": "http://services.runescape.com/m=itemdb_rs/api/catalogue/category.json?category=",
+        "categoryPrice": "http://services.runescape.com/m=itemdb_rs/api/catalogue/items.json?",
+        "graph": "http://services.runescape.com/m=itemdb_rs/api/graph/",
+        "information": "http://services.runescape.com/m=itemdb_rs/api/catalogue/detail.json?item="
+      },
+      "categories": [
+        "Miscellaneous",
+        "Ammo",
+        "Arrows",
+        "Bolts",
+        "Construction materials",
+        "Construction projects",
+        "Cooking ingredients",
+        "Costumes",
+        "Crafting materials",
+        "Familiars",
+        "Farming produce",
+        "Fletching materials",
+        "Food and drink",
+        "Herblore materials",
+        "Hunting equipment",
+        "Hunting produce",
+        "Jewellery",
+        "Mage armour",
+        "Mage weapons",
+        "Melee armour - low level",
+        "Melee armour - mid level",
+        "Melee armour - high level",
+        "Melee weapons - low level",
+        "Melee weapons - mid level",
+        "Melee weapons - high level",
+        "Mining and smithing",
+        "Potions",
+        "Prayer armour",
+        "Prayer materials",
+        "Range armour",
+        "Range weapons",
+        "Runecrafting",
+        "Runes, Spells and Teleports",
+        "Seeds",
+        "Summoning scrolls",
+        "Tools and containers",
+        "Woodcutting product",
+        "Pocket items"
+      ]
     }
   },
   "osrs": {
