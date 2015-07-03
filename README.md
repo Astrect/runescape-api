@@ -12,6 +12,7 @@ The implementation offers functionality to interact with the following:
 
 * [Bestiary][bestiary]
 * [Hiscores][hiscores]
+* [Grand Exchange][ge]
 
 The example below explains how to gain access to the `runescape-api` library and fetch a beasts information.
 
@@ -68,5 +69,6 @@ More examples can be found in the [examples][examples] folder.
 [runescape]: http://www.runescape.com
 [bestiary]: http://services.runescape.com/m=rswiki/en/Bestiary_APIs
 [hiscores]: http://services.runescape.com/m=rswiki/en/Hiscores_APIs
+[ge]: http://services.runescape.com/m=rswiki/en/Grand_Exchange_APIs
 [examples]: https://github.com/Joshua-F/runescape-api/tree/master/examples
 [mit]: http://opensource.org/licenses/MIT
