@@ -36,5 +36,15 @@
       "Bounty Hunter",
       "B.H. Rogues"
     ]
+  },
+  "ge": {
+    "urls": {
+      "category": "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/category.json?category=",
+      "categoryPrice": "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/items.json?",
+      "graph": "http://services.runescape.com/m=itemdb_oldschool/api/graph/",
+      "information": "http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item="
+    },
+    "categories": [
+    ]
   }
 }
