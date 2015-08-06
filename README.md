@@ -6,6 +6,10 @@
 
 `runescape-api` is an open-source wrapper, written in [Node.js][nodejs], that allows interaction with the various APIs available for the popular MMORPG [RuneScape][runescape].
 
+## Installation
+
+`npm install runescape-api --save`
+
 ## Usage
 
 The implementation offers functionality to interact with the following:
