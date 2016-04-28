@@ -1,3 +1,10 @@
+[1.0.7] - 2016-04-28
+=======================
+
+### Added
+- Invention support to RuneScape hiscores (#3)
+- Deadman and Deadman Seasonal support for Oldschool RuneScape hiscores
+
 [1.0.6] - 2015-08-06
 =======================
 
@@ -38,6 +45,7 @@
 
 First release
 
+[1.0.7]: https://github.com/Joshua-F/runescape-api/compare/1.0.6...1.0.7
 [1.0.6]: https://github.com/Joshua-F/runescape-api/compare/1.0.5...1.0.6
 [1.0.5]: https://github.com/Joshua-F/runescape-api/compare/1.0.4...1.0.5
 [1.0.4]: https://github.com/Joshua-F/runescape-api/compare/1.0.3...1.0.4
