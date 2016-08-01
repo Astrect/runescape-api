@@ -1,3 +1,9 @@
+[1.0.8] - 2016-08-01
+=======================
+
+### Fixed
+- Fix an error when loading an oldschool players hiscores.
+
 [1.0.7] - 2016-04-28
 =======================
 
@@ -45,6 +51,7 @@
 
 First release
 
+[1.0.8]: https://github.com/Joshua-F/runescape-api/compare/1.0.7...1.0.8
 [1.0.7]: https://github.com/Joshua-F/runescape-api/compare/1.0.6...1.0.7
 [1.0.6]: https://github.com/Joshua-F/runescape-api/compare/1.0.5...1.0.6
 [1.0.5]: https://github.com/Joshua-F/runescape-api/compare/1.0.4...1.0.5
