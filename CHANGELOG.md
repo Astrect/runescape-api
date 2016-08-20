@@ -1,3 +1,9 @@
+[1.0.9] - 2016-08-20
+=======================
+
+### Added
+- Add LMS Rank to activities for Oldschool RuneScape hiscores.
+
 [1.0.8] - 2016-08-01
 =======================
 
@@ -51,6 +57,7 @@
 
 First release
 
+[1.0.9]: https://github.com/Joshua-F/runescape-api/compare/1.0.8...1.0.9
 [1.0.8]: https://github.com/Joshua-F/runescape-api/compare/1.0.7...1.0.8
 [1.0.7]: https://github.com/Joshua-F/runescape-api/compare/1.0.6...1.0.7
 [1.0.6]: https://github.com/Joshua-F/runescape-api/compare/1.0.5...1.0.6
