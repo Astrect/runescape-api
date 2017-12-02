@@ -10,7 +10,7 @@ chai.use(require('chai-things'));
 describe('GrandExchange', function() {
     describe('category', function() {
         it('should return an object containing a categories information', function(done) {
-            return api.rs.ge.category(0).then(function(category) {
+            return api.rs.ge.category("Melee weapons - high level").then(function(category) {
                 expect(category).to.not.be.empty;
                 done();
             });
