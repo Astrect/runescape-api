@@ -16,8 +16,8 @@
     "url": "https://github.com/Joshua-F/runescape-api/issues"
   },
   "dependencies": {
-    "promise": "^7.0.1",
-    "request": "^2.56.0"
+    "promise": "^8.0.1",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "chai": "^3.0.0",
