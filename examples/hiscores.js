@@ -4,9 +4,11 @@ var api = require('../');
 
 function logInfo(info) {
     var skills = info.skills,
-        activities = info.activities;
+        activities = info.activities,
+        maxed = info.maxed;
 
     console.log(skills);
+    console.log(maxed);
     console.log(activities);
 }
 
