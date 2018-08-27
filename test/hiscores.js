@@ -13,6 +13,7 @@ describe('Hiscores', function() {
             return api.rs.hiscores.player('zezima').then(function(player) {
                 expect(player.skills.hitpoints.level).to.equal(99);
                 expect(player.skills.hitpoints.exp).to.equal(200000000);
+                expect(player.maxed).to.equal(true);
                 done();
             });
         });
