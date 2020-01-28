@@ -26,7 +26,13 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts"
+    "build": "echo \"No build scipt yet -> runescape-api\"",
+    "commit": "npx git-cz",
+    "cz": "npm run commit",
+    "dev": "echo \"No dev scipt yet -> runescape-api\"",
+    "format": "echo \"No format scipt yet -> runescape-api\"",
+    "lint": "echo \"No lint scipt yet -> runescape-api\"",
+    "test": "echo \"No test scipt yet -> runescape-api\""
   },
   "license": "MIT"
 }
