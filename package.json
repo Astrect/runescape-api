@@ -2,29 +2,17 @@
   "name": "runescape-api",
   "version": "1.0.9",
   "description": "Simple wrapper for RuneScape APIs written in node.",
-  "author": "Joshua Filby <joshuaf@shadowscripts.net>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Joshua-F/runescape-api"
-  },
+  "author": "Joshua Filby <joshua@filby.me>",
+  "maintainers": [
+    "Austin Paquette <austin@paquette.io> (https://pqt.dev)"
+  ],
   "keywords": [
     "runescape",
     "osrs",
     "api"
   ],
-  "bugs": {
-    "url": "https://github.com/Joshua-F/runescape-api/issues"
-  },
-  "dependencies": {
-    "promise": "^8.0.1",
-    "request": "^2.83.0"
-  },
-  "devDependencies": {
-    "chai": "^3.0.0",
-    "chai-things": "^0.2.0",
-    "mocha": "^2.2.5"
-  },
-  "main": "index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "build": "echo \"No build scipt yet -> runescape-api\"",
     "commit": "npx git-cz",
@@ -33,6 +21,27 @@
     "format": "echo \"No format scipt yet -> runescape-api\"",
     "lint": "echo \"No lint scipt yet -> runescape-api\"",
     "test": "echo \"No test scipt yet -> runescape-api\""
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pqt/runescape-api"
+  },
+  "bugs": {
+    "url": "https://github.com/pqt/runescape-api/issues"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.+(ts|tsx|js)",
+      "**/?(*.)+(spec|test).+(ts|tsx|js)"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
   },
   "license": "MIT"
 }
