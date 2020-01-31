@@ -6,13 +6,9 @@
   "maintainers": [
     "Austin Paquette <austin@paquette.io> (https://pqt.dev)"
   ],
-  "keywords": [
-    "runescape",
-    "osrs",
-    "api"
-  ],
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "keywords": [],
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "rimraf build && tsc",
     "commit": "npx git-cz",
@@ -20,6 +16,7 @@
     "dev": "rimraf build && tsc --watch",
     "format": "echo \"No format scipt yet -> runescape-api\"",
     "lint": "echo \"No lint scipt yet -> runescape-api\"",
+    "prepublishOnly": "script/prepublish",
     "test": "echo \"No test scipt yet -> runescape-api\""
   },
   "dependencies": {

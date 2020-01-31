@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+# generate the build directory
+npm run --silent dist
+
+mv ./build/* ./

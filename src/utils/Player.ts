@@ -1,4 +1,4 @@
-import { parseJagexPlayerToJSON } from "../adapters/Jagex"
+import { parseJagexPlayerToJSON } from "./Jagex"
 
 export class Player {
   activities: any
