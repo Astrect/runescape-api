@@ -7,10 +7,10 @@ export const getPlayer = async (displayName: string) => {
       `https://secure.runescape.com/m=hiscore/index_lite.ws?player=${displayName}`
     )
 
-    const { activities } = new Player(response.body)
+    const { activities } = new Player(displayName, response.body)
     console.log(activities)
 
-    return new Player(response.body)
+    return new Player(displayName, response.body)
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'
