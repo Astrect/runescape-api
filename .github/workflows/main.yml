@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: "12.x"
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: install
         run: npm install
@@ -32,4 +32,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          args: "-- --dry-run --unsafe-perm"
+          args: "--dry-run -- --unsafe-perm"
