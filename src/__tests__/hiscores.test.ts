@@ -1,4 +1,4 @@
-import { hiscores } from ".."
+import { hiscores } from "../runescape"
 
 const defaultChathead = `https://secure.runescape.com/m=avatar-rs/default_chat.png?`
 

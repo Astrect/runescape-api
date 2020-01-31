@@ -66,6 +66,7 @@
   },
   "exclude": [
     "node_modules",
-    "**/*.test.ts"
+    "build",
+    "**/*.test.ts",
 ]
 }
