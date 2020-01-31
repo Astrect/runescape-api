@@ -3,7 +3,7 @@ on: push
 
 jobs:
   npm:
-    name: Publish to NPM & GPR
+    name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -24,10 +24,11 @@ jobs:
         run: npm run test
 
       - name: build
-        run: npm run build
+        run: scripts/build_and_move
 
       - name: publish (npm)
         uses: primer/publish@v2.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          args: "--dry-run -- --unsafe-perm"

@@ -6,24 +6,26 @@
   "maintainers": [
     "Austin Paquette <austin@paquette.io> (https://pqt.dev)"
   ],
-  "keywords": [
-    "runescape",
-    "osrs",
-    "api"
-  ],
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "keywords": [],
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
-    "build": "echo \"No build scipt yet -> runescape-api\"",
+    "build": "rimraf build && tsc",
     "commit": "npx git-cz",
     "cz": "npm run commit",
-    "dev": "echo \"No dev scipt yet -> runescape-api\"",
+    "dev": "rimraf build && tsc --watch",
     "format": "echo \"No format scipt yet -> runescape-api\"",
     "lint": "echo \"No lint scipt yet -> runescape-api\"",
     "test": "echo \"No test scipt yet -> runescape-api\""
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "got": "^10.3.0",
+    "slugify": "^1.3.6"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.1",
+    "typescript": "^3.7.5"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/pqt/runescape-api"
