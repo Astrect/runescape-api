@@ -7,4 +7,11 @@ import * as runemetrics from "./runescape/runemetrics"
 import * as oldschool from "./oldschool"
 
 export { bestiary, clan, grandexchange, hiscores, runemetrics, oldschool }
-export default runescape
+export default {
+  bestiary,
+  clan,
+  grandexchange,
+  hiscores,
+  runemetrics,
+  oldschool,
+}
