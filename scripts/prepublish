@@ -4,4 +4,8 @@ set -e
 # generate the build directory
 npm run --silent dist
 
-mv ./build/* ./
+files=$(git ls-files build | sed -e 's#^build/##' | sed -e 's#/.*$##' | sort -u)
+echo $files >publish-files.log
+cd build
+cp -rv $files ..
+cd -
