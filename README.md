@@ -35,7 +35,7 @@ yarn add runescape-api
 ```js
 import { getPlayer } from "runescape-api"
 
-getPlayer("Paqt")
+getPlayer("Zezima")
 ```
 
 </details>

@@ -1,4 +1,5 @@
 import got from "got"
+import { Player } from "./lib/Player"
 
 export const getPlayer = async (displayName: string) => {
   try {
@@ -6,7 +7,10 @@ export const getPlayer = async (displayName: string) => {
       `https://secure.runescape.com/m=hiscore/index_lite.ws?player=${displayName}`
     )
 
-    return response.body
+    const { activities } = new Player(response.body)
+    console.log(activities)
+
+    return new Player(response.body)
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'
