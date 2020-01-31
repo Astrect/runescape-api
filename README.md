@@ -35,6 +35,8 @@ yarn add runescape-api
 <details>
   <summary>Clan</summary>
 
+---
+
 **Members**
 
 ```js
@@ -49,6 +51,8 @@ clan.members("Royal 58").then(members => {
 
 <details>
   <summary>Hiscores</summary>
+
+---
 
 **Player**
 
@@ -139,6 +143,23 @@ hiscores.avatar("Paqt").then(avatar => {
   /**
    * https://secure.runescape.com/m=avatar-rs/avatar.png?id=25260020
    */
+})
+```
+
+</details>
+
+<details>
+  <summary>RuneMetrics</summary>
+
+---
+
+**Profile**
+
+```js
+const { runemetrics } = require("runescape-api")
+
+runemetrics.profile("Paqt").then(profile => {
+  console.log(profile)
 })
 ```
 
