@@ -82,8 +82,5 @@ export const parseJagexClanToJSON = (jagexClan: string) => {
   const lines = separateIntoLines(jagexClan)
   const members = formatClanMembers([...lines.slice(1, -1)])
 
-  return {
-    count: parseInt(members.length),
-    members,
-  }
+  return members
 }
