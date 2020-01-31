@@ -4,8 +4,5 @@ set -e
 # generate the build directory
 npm run build
 
-files=$(git ls-files src | sed -e 's#^src/##' | sed -e 's#/.*$##' | sort -u)
-echo $files >publish-files.log
-cd build
-cp -rv $files ..
-cd -
+# move files from the build directory to project root
+mv ./build/* ./
