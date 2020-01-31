@@ -16,7 +16,6 @@
     "dev": "rimraf build && tsc --watch",
     "format": "echo \"No format scipt yet -> runescape-api\"",
     "lint": "echo \"No lint scipt yet -> runescape-api\"",
-    "prepublishOnly": "script/prepublish",
     "test": "echo \"No test scipt yet -> runescape-api\""
   },
   "dependencies": {

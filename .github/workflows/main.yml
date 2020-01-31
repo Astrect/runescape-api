@@ -24,7 +24,7 @@ jobs:
         run: npm run test
 
       - name: build
-        run: npm run build
+        run: npm run build && scripts/prepublish
 
       - name: publish (npm)
         uses: primer/publish@v2.0.0
