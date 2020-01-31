@@ -1,7 +1,7 @@
 import slugify from "slugify"
 import { runescape as RSConfigs } from "../configs"
 
-const separateIntoLines = (jagexPlayer: any): string[] => {
+const separateIntoLines = (jagexPlayer: string): string[] => {
   return jagexPlayer.split("\n")
 }
 const formatActivities = (activitiesArray: string[]) => {
@@ -40,7 +40,22 @@ const formatSkills = (skillsArray: string[]) => {
 
   return skills
 }
-export const parseJagexPlayerToJSON = (jagexPlayer: any) => {
+const formatClanMembers = (membersArray: string[]) => {
+  const members: any = {}
+
+  membersArray.map(member => {
+    const [name, rank, experience, kills] = member.split(",")
+    const regex = new RegExp(/\uFFFD/g)
+    members[name.replace(regex, " ")] = {
+      rank,
+      experience: parseInt(experience),
+      kills: parseInt(kills),
+    }
+  })
+
+  return members
+}
+export const parseJagexPlayerToJSON = (jagexPlayer: string) => {
   const lines = separateIntoLines(jagexPlayer)
   const [skillsStartIndex, skillsEndIndex] = [
     0,
@@ -61,5 +76,14 @@ export const parseJagexPlayerToJSON = (jagexPlayer: any) => {
   return {
     activities,
     skills,
+  }
+}
+export const parseJagexClanToJSON = (jagexClan: string) => {
+  const lines = separateIntoLines(jagexClan)
+  const members = formatClanMembers([...lines.slice(1, -1)])
+
+  return {
+    count: parseInt(members.length),
+    members,
   }
 }

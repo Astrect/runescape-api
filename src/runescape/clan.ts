@@ -1,5 +1,6 @@
 import got from "got"
 import { runescape as RSConfigs } from "../configs"
+import { parseJagexClanToJSON } from "../utils/Jagex"
 
 export const members = async (clanName: string) => {
   try {
@@ -7,7 +8,7 @@ export const members = async (clanName: string) => {
       `${RSConfigs.hiscores.endpoints.clan}${encodeURI(clanName)}`
     )
 
-    return response.body
+    return parseJagexClanToJSON(response.body)
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'
