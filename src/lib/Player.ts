@@ -8,8 +8,8 @@ export class Player {
   constructor(name: string, jagexPlayer: string) {
     const { activities, skills } = parseJagexPlayerToJSON(jagexPlayer)
 
-    this.activities = activities
     this.name = name
+    this.activities = activities
     this.skills = skills
   }
 }
