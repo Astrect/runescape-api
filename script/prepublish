@@ -2,7 +2,7 @@
 set -e
 
 # generate the build directory
-npm run --silent dist
+npm run build
 
 files=$(git ls-files build | sed -e 's#^build/##' | sed -e 's#/.*$##' | sort -u)
 echo $files >publish-files.log
