@@ -1,5 +1,8 @@
 import { parseJagexPlayerToJSON } from "../adapters/Jagex"
 
+/**
+ * 
+ */
 export class Player {
   activities: any
   skills: any
