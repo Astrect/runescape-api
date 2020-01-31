@@ -1,8 +1,6 @@
 import got from "got"
 import { runescape as RSConfigs } from "../configs"
 
-type Skill = "attack"
-
 export const profile = async (name: string) => {
   try {
     const response = await got(RSConfigs.runemetrics.endpoints.profile, {
@@ -19,13 +17,16 @@ export const profile = async (name: string) => {
   }
 }
 
-export const monthlyXp = async (name: string, skill: Skill) => {
+export const monthlyXp = async (name: string, skillId: number) => {
   try {
-    const response = await got.get(
-      `https://apps.runescape.com/runemetrics/xp-monthly?searchName=${name}&skillid=${skill}`
-    )
+    const response = await got(RSConfigs.runemetrics.endpoints.monthlyXp, {
+      searchParams: {
+        searchName: encodeURI(name),
+        skillid: skillId,
+      },
+    }).json()
 
-    return response.body
+    return response
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'
@@ -34,11 +35,13 @@ export const monthlyXp = async (name: string, skill: Skill) => {
 
 export const quests = async (name: string) => {
   try {
-    const response = await got.get(
-      `https://apps.runescape.com/runemetrics/quests?user=${name}`
-    )
+    const response = await got(RSConfigs.runemetrics.endpoints.quests, {
+      searchParams: {
+        user: encodeURI(name),
+      },
+    }).json()
 
-    return response.body
+    return response
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'
