@@ -33,16 +33,32 @@ yarn add runescape-api
 ### RuneScape
 
 <details>
-  <summary>Hiscores</summary>
+  <summary>Clan</summary>
+
+**Members**
 
 ```js
-import { getPlayer } from "runescape-api"
+const { clan } = require("runescape-api")
 
-(async () => {
-  const zezima = await getPlayer("Zezima")
+clan.members("Royal 58").then(members => {
+  console.log(members)
+})
+```
+
+</details>
+
+<details>
+  <summary>Hiscores</summary>
+
+**Player**
+
+```js
+const { hiscores } = require("runescape-api")
+
+hiscores.player("Zezima").then(zezima => {
+  console.log(zezima)
+
   /**
-   * console.log(zezima) prints:
-   *
    * Player {
    *   name: 'Zezima',
    *   activities: {
@@ -109,7 +125,23 @@ import { getPlayer } from "runescape-api"
    *   }
    * }
    */
-})()
+})
+```
+
+**Avatar**
+
+```js
+const { hiscores } = require("runescape-api")
+
+hiscores.avatar("Paqt").then(avatar => {
+  console.log(avatar)
+
+  /**
+   * https://secure.runescape.com/m=avatar-rs/avatar.png?id=25260020
+   */
+})
 ```
 
 </details>
+
+## API

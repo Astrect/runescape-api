@@ -1,14 +1,18 @@
 import got from "got"
+import { runescape as RSConfigs } from "../configs"
 
 type Skill = "attack"
 
 export const profile = async (name: string) => {
   try {
-    const response = await got.get(
-      `https://apps.runescape.com/runemetrics/profile/profile?user=${name}&activities=20`
-    )
+    const response = await got(RSConfigs.runemetrics.endpoints.profile, {
+      searchParams: {
+        activities: 20,
+        user: encodeURI(name),
+      },
+    }).json()
 
-    return response.body
+    return response
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'
