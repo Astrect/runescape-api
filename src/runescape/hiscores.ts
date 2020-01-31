@@ -32,7 +32,9 @@ export const player = async (name: string, gamemode: Gamemode = "normal") => {
 
   try {
     const response = await got(RSConfigs.hiscores.endpoints[gamemode], {
-      searchParams: new URLSearchParams([["player", encodeURI(name)]]),
+      searchParams: {
+        player: encodeURI(name),
+      },
     })
 
     return new Player(name, response.body)
