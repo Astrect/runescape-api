@@ -14,7 +14,7 @@
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
-    "build": "echo \"No build scipt yet -> runescape-api\"",
+    "build": "rimraf build && tsc",
     "commit": "npx git-cz",
     "cz": "npm run commit",
     "dev": "rimraf build && tsc --watch",
