@@ -109,7 +109,7 @@ import { getPlayer } from "runescape-api"
    *   }
    * }
    */
-}()
+})()
 ```
 
 </details>
