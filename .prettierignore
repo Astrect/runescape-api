@@ -1,0 +1,10 @@
+# Ignore everything:
+/*
+
+# Except these root files:
+!LICENSE
+!README.md
+!package.json
+
+# Except these sources
+!/src
