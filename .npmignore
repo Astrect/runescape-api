@@ -4,6 +4,9 @@
 # Dependancies
 node_modules
 
+# Executables
+scripts
+
 # Source Files
 src
 
