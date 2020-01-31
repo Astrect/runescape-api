@@ -1,15 +1,8 @@
 import got from "got"
+import { runescape as RSConfigs } from "../configs"
 import { Player } from "../utils/Player"
 
 type Gamemode = "normal" | "ironman" | "hardcore"
-
-const urls = {
-  normal: "http://services.runescape.com/m=hiscore/index_lite.ws?player=",
-  ironman:
-    "http://services.runescape.com/m=hiscore_ironman/index_lite.ws?player=",
-  hardcore:
-    "http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player=",
-}
 
 export const avatar = async (name: string) => {
   try {
@@ -38,7 +31,9 @@ export const player = async (name: string, gamemode: Gamemode = "normal") => {
   }
 
   try {
-    const response = await got.get(`${urls[gamemode]}${encodeURI(name)}`)
+    const response = await got(RSConfigs.hiscores.endpoints[gamemode], {
+      searchParams: new URLSearchParams([["player", encodeURI(name)]]),
+    })
 
     return new Player(name, response.body)
   } catch (error) {

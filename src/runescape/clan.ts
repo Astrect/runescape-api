@@ -1,11 +1,10 @@
 import got from "got"
+import { runescape as RSConfigs } from "../configs"
 
 export const members = async (clanName: string) => {
   try {
     const response = await got.get(
-      `http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName=${encodeURI(
-        clanName
-      )}`
+      `${RSConfigs.hiscores.endpoints.clan}${encodeURI(clanName)}`
     )
 
     return response.body
