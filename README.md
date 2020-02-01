@@ -33,16 +33,36 @@ yarn add runescape-api
 ### RuneScape
 
 <details>
-  <summary>Hiscores</summary>
+  <summary>Clan</summary>
+
+---
+
+**Members**
 
 ```js
-import { getPlayer } from "runescape-api"
+const { clan } = require("runescape-api")
 
-(async () => {
-  const zezima = await getPlayer("Zezima")
+clan.members("Royal 58").then(members => {
+  console.log(members)
+})
+```
+
+</details>
+
+<details>
+  <summary>Hiscores</summary>
+
+---
+
+**Player**
+
+```js
+const { hiscores } = require("runescape-api")
+
+hiscores.player("Zezima").then(zezima => {
+  console.log(zezima)
+
   /**
-   * console.log(zezima) prints:
-   *
    * Player {
    *   name: 'Zezima',
    *   activities: {
@@ -109,7 +129,188 @@ import { getPlayer } from "runescape-api"
    *   }
    * }
    */
-})()
+})
+```
+
+**Avatar**
+
+```js
+const { hiscores } = require("runescape-api")
+
+hiscores.avatar("Paqt").then(avatar => {
+  console.log(avatar)
+
+  /**
+   * https://secure.runescape.com/m=avatar-rs/avatar.png?id=25260020
+   */
+})
 ```
 
 </details>
+
+<details>
+  <summary>RuneMetrics</summary>
+
+---
+
+**Profile**
+
+```js
+const { runemetrics } = require("runescape-api")
+
+runemetrics.profile("Paqt").then(profile => {
+  console.log(profile)
+
+  /**
+   * {
+   *   magic: 1388722,
+   *   questsstarted: 18,
+   *   totalskill: 1929,
+   *   questscomplete: 132,
+   *   questsnotstarted: 143,
+   *   totalxp: 73706113,
+   *   ranged: 4177540,
+   *   activities: [
+   *     {
+   *       date: '24-Jan-2020 21:12',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '17-Jul-2019 07:04',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '17-Jul-2019 07:04',
+   *       details: 'I levelled my  Herblore skill, I am now level 61.',
+   *       text: 'Levelled up Herblore.'
+   *     },
+   *     {
+   *       date: '26-Jun-2019 04:41',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '20-Jun-2019 01:10',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '05-Jun-2019 04:34',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '07-Feb-2019 04:27',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '07-Feb-2019 04:24',
+   *       details: 'I won a large amount of coins on Treasure Hunter!',
+   *       text: 'Large amount of coins obtained.'
+   *     },
+   *     {
+   *       date: '30-Jan-2019 05:40',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '03-Jan-2019 01:47',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '26-Dec-2018 10:22',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '04-Dec-2018 04:14',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '28-Nov-2018 05:31',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '08-Nov-2018 07:58',
+   *       details: 'I levelled my  Mining skill, I am now level 68.',
+   *       text: 'Levelled up Mining.'
+   *     },
+   *     {
+   *       date: '08-Nov-2018 07:43',
+   *       details: 'I have visited my Clan Citadel this week.',
+   *       text: 'Visited my Clan Citadel.'
+   *     },
+   *     {
+   *       date: '14-Oct-2014 12:51',
+   *       details: 'I levelled my  Summoning skill, I am now level 62.',
+   *       text: 'Levelled up Summoning.'
+   *     },
+   *     {
+   *       date: '13-Oct-2014 00:30',
+   *       details: 'I levelled my  Hunter skill, I am now level 62.',
+   *       text: 'Levelled up Hunter.'
+   *     },
+   *     {
+   *       date: '13-Oct-2014 00:29',
+   *       details: 'I levelled my  Crafting skill, I am now level 69.',
+   *       text: 'Levelled up Crafting.'
+   *     },
+   *     {
+   *       date: '10-Aug-2014 01:50',
+   *       details: 'I won a Lucky Armadyl crossbow on Treasure Hunter!',
+   *       text: 'Lucky Armadyl crossbow obtained.'
+   *     },
+   *     {
+   *       date: '02-May-2014 00:08',
+   *       details: 'I levelled my  Divination skill, I am now level 72.',
+   *       text: 'Levelled up Divination.'
+   *     }
+   *   ],
+   *   skillvalues: [
+   *     { level: 99, xp: 150601597, rank: 87483, id: 8 },
+   *     { level: 99, xp: 132964135, rank: 131197, id: 9 },
+   *     { level: 99, xp: 131605606, rank: 174448, id: 11 },
+   *     { level: 87, xp: 41775402, rank: 391262, id: 3 },
+   *     { level: 87, xp: 39885284, rank: 362191, id: 2 },
+   *     { level: 86, xp: 39335527, rank: 359811, id: 6 },
+   *     { level: 85, xp: 35044619, rank: 344088, id: 1 },
+   *     { level: 85, xp: 33169037, rank: 354179, id: 0 },
+   *     { level: 83, xp: 27258878, rank: 274953, id: 10 },
+   *     { level: 79, xp: 19172809, rank: 402003, id: 4 },
+   *     { level: 76, xp: 13887225, rank: 332969, id: 5 },
+   *     { level: 73, xp: 10224021, rank: 425629, id: 7 },
+   *     { level: 72, xp: 9033714, rank: 286824, id: 25 },
+   *     { level: 69, xp: 7178440, rank: 388167, id: 18 },
+   *     { level: 69, xp: 7162753, rank: 405987, id: 12 },
+   *     { level: 68, xp: 6155160, rank: 479803, id: 14 },
+   *     { level: 65, xp: 4746375, rank: 482993, id: 13 },
+   *     { level: 62, xp: 3569058, rank: 382899, id: 23 },
+   *     { level: 62, xp: 3448319, rank: 378132, id: 21 },
+   *     { level: 61, xp: 3272737, rank: 395359, id: 15 },
+   *     { level: 61, xp: 3219611, rank: 400888, id: 24 },
+   *     { level: 61, xp: 3138007, rank: 380394, id: 17 },
+   *     { level: 60, xp: 2881919, rank: 393794, id: 20 },
+   *     { level: 60, xp: 2831891, rank: 349363, id: 19 },
+   *     { level: 60, xp: 2754656, rank: 431113, id: 16 },
+   *     { level: 60, xp: 2744480, rank: 406241, id: 22 },
+   *     { level: 1, xp: 0, rank: 0, id: 26 }
+   *   ],
+   *   name: 'Paqt',
+   *   rank: '332,809',
+   *   melee: 38605287,
+   *   combatlevel: 116,
+   *   loggedIn: 'false'
+   * }
+   */
+})
+```
+
+</details>
+
+## API

@@ -65,10 +65,10 @@ export const runescape = {
   },
   hiscores: {
     endpoints: {
-      normal: `http://services.runescape.com/m=hiscore/index_lite.ws?player=`,
-      ironman: `http://services.runescape.com/m=hiscore_ironman/index_lite.ws?player=`,
-      hardcore: `http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player=`,
-      clan: `http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName=`,
+      normal: `http://services.runescape.com/m=hiscore/index_lite.ws`,
+      ironman: `http://services.runescape.com/m=hiscore_ironman/index_lite.ws`,
+      hardcore: `http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws`,
+      clan: `http://services.runescape.com/m=clan-hiscores/members_lite.ws`,
     },
     activities: [
       `Bounty Hunters`,
@@ -135,9 +135,9 @@ export const runescape = {
   },
   runemetrics: {
     endpoints: {
-      profile: `https://apps.runescape.com/runemetrics/profile/profile?activities=20&user=`,
+      profile: `https://apps.runescape.com/runemetrics/profile/profile`,
       monthlyXp: `https://apps.runescape.com/runemetrics/xp-monthly`,
-      quests: `https://apps.runescape.com/runemetrics/quests?user=`,
+      quests: `https://apps.runescape.com/runemetrics/quests`,
     },
   },
   other: {
