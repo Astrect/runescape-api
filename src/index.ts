@@ -15,3 +15,11 @@ export default {
   runemetrics,
   oldschool,
 }
+
+const testFunction = async () => {
+  const test = await bestiary.beastSearch("200-300", "levelRange")
+
+  console.log(test)
+}
+
+testFunction()
