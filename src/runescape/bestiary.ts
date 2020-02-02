@@ -9,7 +9,6 @@ type SlayerBeastSearchMethods =
   | "weakness"
   | "levelRange"
 
-// Bestiary
 export const areas = async () => {
   try {
     return await got(RSConfigs.bestiary.endpoints.areas).json()
@@ -18,6 +17,7 @@ export const areas = async () => {
     //=> 'Internal server error ...'
   }
 }
+
 export const beast = async (beastid: number) => {
   try {
     return await got(RSConfigs.bestiary.endpoints.beast, {
@@ -30,6 +30,7 @@ export const beast = async (beastid: number) => {
     //=> 'Internal server error ...'
   }
 }
+
 export const beastSearch = async (
   search: string,
   method: SlayerBeastSearchMethods = "terms"
@@ -107,6 +108,7 @@ export const beastSearch = async (
     //=> 'Internal server error ...'
   }
 }
+
 export const slayerCategories = async () => {
   try {
     return await got(RSConfigs.bestiary.endpoints.slayerCategories).json()
@@ -115,6 +117,7 @@ export const slayerCategories = async () => {
     //=> 'Internal server error ...'
   }
 }
+
 export const weaknesses = async () => {
   try {
     return await got(RSConfigs.bestiary.endpoints.weaknesses).json()

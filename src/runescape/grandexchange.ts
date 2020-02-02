@@ -1,7 +1,6 @@
 import got from "got"
 import { runescape as RSConfigs } from "../configs"
 
-// Grand Exchange
 export const category = async (category: number) => {
   try {
     const response = await got(RSConfigs.grandexchange.endpoints.category, {
@@ -16,6 +15,7 @@ export const category = async (category: number) => {
     //=> 'Internal server error ...'
   }
 }
+
 export const categoryPrices = async (
   category: number,
   prefix: string,

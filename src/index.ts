@@ -15,3 +15,9 @@ export default {
   runemetrics,
   oldschool,
 }
+
+const test = async () => {
+  console.log(await hiscores.avatar("Moderator"))
+}
+
+test()

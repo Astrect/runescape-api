@@ -2,8 +2,6 @@ import got from "got"
 import { runescape as RSConfigs } from "../configs"
 import { Player } from "../utils/Player"
 
-type Gamemode = "normal" | "ironman" | "hardcore"
-
 export const avatar = async (name: string) => {
   try {
     const response = await got.get(
@@ -14,12 +12,15 @@ export const avatar = async (name: string) => {
 
     return response.url
   } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+    new Error(error)
+    return `https://secure.runescape.com/m=avatar-rs/default_chat.png?`
   }
 }
 
-export const player = async (name: string, gamemode: Gamemode = "normal") => {
+export const player = async (
+  name: string,
+  gamemode: RS.Gamemode = "normal"
+) => {
   if (typeof name !== "string") {
     return new Error("Username must be a string")
   }
@@ -39,7 +40,6 @@ export const player = async (name: string, gamemode: Gamemode = "normal") => {
 
     return new Player(name, response.body)
   } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+    return new Error(error)
   }
 }
