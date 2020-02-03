@@ -1,5 +1,6 @@
 import got from "got"
 import { runescape as RSConfigs } from "../configs"
+import { Gamemode } from "../types"
 import { Player } from "../utils/Player"
 
 export const avatar = async (name: string) => {
@@ -17,10 +18,7 @@ export const avatar = async (name: string) => {
   }
 }
 
-export const player = async (
-  name: string,
-  gamemode: RS.Gamemode = "normal"
-) => {
+export const player = async (name: string, gamemode: Gamemode = "normal") => {
   if (typeof name !== "string") {
     return new Error("Username must be a string")
   }

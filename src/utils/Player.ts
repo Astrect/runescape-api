@@ -1,8 +1,9 @@
+import { PlayerActivites, PlayerSkills } from "../types"
 import { parseJagexPlayerToJSON } from "./Jagex"
 
 export class Player {
-  activities: any
-  skills: any
+  activities: PlayerActivites
+  skills: PlayerSkills
   name: string
 
   constructor(name: string, jagexPlayer: string) {

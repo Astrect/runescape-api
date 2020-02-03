@@ -14,7 +14,7 @@
     "commit": "npx git-cz",
     "cz": "npm run commit",
     "dev": "rimraf build && tsc --watch",
-    "format": "prettier ./{src,__{tests,mocks}__}/**/**/*.{js,jsx,ts,tsx} --write",
+    "format": "prettier ./{src,__{tests,mocks}__}/{**,**/**}/*.{js,jsx,ts,tsx} --write",
     "lint": "eslint src --ext=\".js,.jsx,.ts,.tsx\"",
     "test": "jest"
   },
