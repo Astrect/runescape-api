@@ -15,8 +15,3 @@ export default {
   runemetrics,
   oldschool,
 }
-;(() => {
-  hiscores.player("Paqt").then(p => {
-    console.log(p)
-  })
-})()
