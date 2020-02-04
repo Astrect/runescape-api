@@ -17,3 +17,4 @@ export type Skill = {
   level: number
   experience: number
 }
+export type SlayerBeastSearchMethods = typeof RSConfigs.bestiary.searchMethods[number]

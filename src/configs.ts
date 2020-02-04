@@ -14,6 +14,14 @@ export const runescape = {
       slayerCategories: `http://services.runescape.com/m=itemdb_rs/bestiary/bestiary/slayerCatNames.json`,
       weaknesses: `http://services.runescape.com/m=itemdb_rs/bestiary/bestiary/weaknessNames.json`,
     },
+    searchMethods: [
+      "terms",
+      "firstLetter",
+      "area",
+      "slayerCategory",
+      "weakness",
+      "levelRange",
+    ] as const,
   },
   grandexchange: {
     endpoints: {

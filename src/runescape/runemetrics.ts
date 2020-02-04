@@ -1,5 +1,9 @@
 import got from "got"
 import { runescape as RSConfigs } from "../configs"
+import {
+  JagexRuneMetricsProfile,
+  RuneMetricsProfile,
+} from "../utils/RuneMetricsProfile"
 
 export const profile = async (name: string) => {
   try {
@@ -8,9 +12,10 @@ export const profile = async (name: string) => {
         activities: 20,
         user: encodeURI(name),
       },
-    }).json()
+    }).json<JagexRuneMetricsProfile>()
 
-    return response
+    console.log(response)
+    return new RuneMetricsProfile(response)
   } catch (error) {
     console.log(error.response.body)
     //=> 'Internal server error ...'

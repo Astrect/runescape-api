@@ -1,13 +1,6 @@
 import got from "got"
 import { runescape as RSConfigs } from "../configs"
-
-type SlayerBeastSearchMethods =
-  | "terms"
-  | "firstLetter"
-  | "area"
-  | "slayerCategory"
-  | "weakness"
-  | "levelRange"
+import { SlayerBeastSearchMethods } from "../types"
 
 export const areas = async () => {
   try {
