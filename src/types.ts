@@ -49,7 +49,7 @@ export namespace Jagex {
     }
     export type BeastSearchMethods = typeof bestiary.searchMethods[number]
     export type SlayerCategories = unknown
-    export type Weakness = string
+    export type Weakness = typeof bestiary.weaknesses[number]
     export type Weaknesses = {
       None: number
       Air: number

@@ -1,5 +1,5 @@
-import { Jagex, RuneScape } from "../types"
 import { bestiary } from "../configs/runescape"
+import { Jagex, RuneScape } from "../types"
 
 export class Beast {
   id: number
@@ -19,7 +19,7 @@ export class Beast {
   attackable: boolean
   aggressive: boolean
   poisonous: boolean
-  weakness: string
+  weakness: Weakness
 
   constructor(beast: Jagex.Bestiary.Beast) {
     this.id = beast.id
@@ -79,7 +79,7 @@ export class Weakness {
   id: number
   name: RuneScape.Bestiary.Weakness
 
-  constructor(weakness: RuneScape.Bestiary.Weakness | number) {
+  constructor(weakness: Jagex.Bestiary.Weakness | number) {
     if (typeof weakness === "string") {
       this.id = bestiary.weaknesses.indexOf(weakness)
       this.name = weakness
