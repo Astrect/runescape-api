@@ -1,4 +1,4 @@
-import { runescape as RSConfigs } from "../configs"
+import { hiscores } from "../configs/runescape"
 import { PlayerActivites, PlayerSkills } from "../types"
 
 const separateIntoLines = (jagexPlayer: string): string[] => {
@@ -38,7 +38,7 @@ const formatActivities = (activitiesArray: string[]) => {
     clue_scrolls_master: { rank: -1, count: -1 },
   }
 
-  RSConfigs.hiscores.activities.map((activityName, index) => {
+  hiscores.activities.map((activityName, index) => {
     const [rank, count] = activitiesArray[index].split(",")
     activities[activityName] = { rank: parseInt(rank), count: parseInt(count) }
   })
@@ -77,7 +77,7 @@ const formatSkills = (skillsArray: string[]) => {
     invention: { rank: -1, level: -1, experience: -1 },
   }
 
-  RSConfigs.hiscores.skills.map((skillName, index) => {
+  hiscores.skills.map((skillName, index) => {
     const [rank, level, experience] = skillsArray[index].split(",")
     skills[skillName] = {
       rank: parseInt(rank),
@@ -105,13 +105,10 @@ const formatClanMembers = (membersArray: string[]) => {
 }
 export const parseJagexPlayerToJSON = (jagexPlayer: string) => {
   const lines = separateIntoLines(jagexPlayer)
-  const [skillsStartIndex, skillsEndIndex] = [
-    0,
-    RSConfigs.hiscores.skills.length,
-  ]
+  const [skillsStartIndex, skillsEndIndex] = [0, hiscores.skills.length]
   const [activitiesStartIndex, activitiesEndIndex] = [
-    RSConfigs.hiscores.skills.length,
-    RSConfigs.hiscores.skills.length + RSConfigs.hiscores.activities.length,
+    hiscores.skills.length,
+    hiscores.skills.length + hiscores.activities.length,
   ]
 
   const activities = formatActivities([

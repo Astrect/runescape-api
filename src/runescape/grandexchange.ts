@@ -1,68 +1,18 @@
 import got from "got"
-import { runescape as RSConfigs } from "../configs"
 
-export const category = async (category: number) => {
+export const getCategories = async () => {
   try {
-    const response = await got(RSConfigs.grandexchange.endpoints.category, {
-      searchParams: {
-        category,
-      },
-    }).json()
-
-    return response
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+  } catch (error) {}
 }
-
-export const categoryPrices = async (
-  category: number,
-  prefix: string,
-  page: number
-) => {
+export const getCategoryPrices = async () => {
   try {
-    const response = await got(
-      RSConfigs.grandexchange.endpoints.categoryPrices,
-      {
-        searchParams: {
-          category,
-          alpha: prefix,
-          page,
-        },
-      }
-    ).json()
-
-    return response
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+  } catch (error) {}
 }
-
-export const item = async (item: number) => {
+export const getItem = async () => {
   try {
-    const response = await got(RSConfigs.grandexchange.endpoints.item, {
-      searchParams: {
-        item,
-      },
-    }).json()
-
-    return response
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+  } catch (error) {}
 }
-export const itemGraph = async (item: number) => {
+export const getItemGraph = async () => {
   try {
-    const response = await got(
-      `${RSConfigs.grandexchange.endpoints.itemGraph}${item}.json`
-    ).json()
-
-    return response
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+  } catch (error) {}
 }

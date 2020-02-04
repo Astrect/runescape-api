@@ -1,121 +1,42 @@
 import got from "got"
-import { runescape as RSConfigs } from "../configs"
-import { SlayerBeastSearchMethods } from "../types"
+import { bestiary } from "../configs/runescape"
+import { Beast, Weakness } from "../lib/RuneScape"
+import { Jagex, RuneScape } from "../types"
 
-export const areas = async () => {
+export const getAreas = async (): Promise<RuneScape.Bestiary.Areas> => {
   try {
-    return await got(RSConfigs.bestiary.endpoints.areas).json()
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+    const areas = await got(bestiary.endpoints.areas).json<
+      Jagex.Bestiary.Areas
+    >()
+
+    return areas
+  } catch (error) {}
 }
-
-export const beast = async (beastid: number) => {
+export const getBeastById = async (beastId: number) => {
   try {
-    return await got(RSConfigs.bestiary.endpoints.beast, {
+    const beast = await got(bestiary.endpoints.beast, {
       searchParams: {
-        beastid,
+        beastid: beastId,
       },
-    }).json()
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+    }).json<Jagex.Bestiary.Beast>()
+
+    return new Beast(beast)
+  } catch (error) {}
 }
-
-export const beastSearch = async (
-  search: string,
-  method: SlayerBeastSearchMethods = "terms"
-) => {
+// export const getBeastsBySearch = async (): Promise<RuneScape.Bestiary.Beasts> => {
+//   try {
+//   } catch (error) {}
+// }
+// export const getSlayerCategories = async (): Promise<RuneScape.Bestiary.SlayerCategories> => {
+//   try {
+//   } catch (error) {}
+// }
+export const getWeaknesses = async () => {
   try {
-    // By Terms
-    if (method === "terms") {
-      // TODO: Space separators converted to + (cow sheep = cow+sheep)
-      const response = await got(RSConfigs.bestiary.endpoints.beastTerm, {
-        searchParams: {
-          term: search,
-        },
-      }).json()
+    const weaknesses = await got(bestiary.endpoints.weaknesses).json<
+      Jagex.Bestiary.Weaknesses
+    >()
 
-      return response
-    }
-
-    // By First Letter
-    if (method === "firstLetter") {
-      const response = await got(RSConfigs.bestiary.endpoints.beastLetter, {
-        searchParams: {
-          letter: search,
-        },
-      }).json()
-
-      return response
-    }
-
-    // By Area
-    if (method === "area") {
-      const response = await got(RSConfigs.bestiary.endpoints.beastArea, {
-        searchParams: {
-          identifier: search,
-        },
-      }).json()
-
-      return response
-    }
-
-    // By Slayer Category
-    if (method === "slayerCategory") {
-      const response = await got(RSConfigs.bestiary.endpoints.beastSlayer, {
-        searchParams: {
-          identifier: search,
-        },
-      }).json()
-
-      return response
-    }
-
-    // By Weakness
-    if (method === "weakness") {
-      const response = await got(RSConfigs.bestiary.endpoints.beastWeakness, {
-        searchParams: {
-          identifier: search,
-        },
-      }).json()
-
-      return response
-    }
-
-    // By Level Range
-    if (method === "levelRange") {
-      // TODO: enable a level range (200-300) somehow gracefully
-      const response = await got(RSConfigs.bestiary.endpoints.beastLevel, {
-        searchParams: {
-          identifier: search,
-        },
-      }).json()
-
-      return response
-    }
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
-}
-
-export const slayerCategories = async () => {
-  try {
-    return await got(RSConfigs.bestiary.endpoints.slayerCategories).json()
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
-}
-
-export const weaknesses = async () => {
-  try {
-    return await got(RSConfigs.bestiary.endpoints.weaknesses).json()
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+    return Object.values(weaknesses).map(i => new Weakness(i))
+  } catch (error) {}
 }
