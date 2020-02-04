@@ -1,3 +1,4 @@
+import {inspect} from "util"
 import * as bestiary from "./runescape/bestiary"
 import * as clan from "./runescape/clan"
 import * as grandexchange from "./runescape/grandexchange"
@@ -16,8 +17,14 @@ export default {
   oldschool,
 }
 
+// Areas
+// bestiary.getAreas().then(data => console.log(data))
+
+// Beast (Nex)
+// bestiary.getBeastById(18880).then(data => console.log(data))
+
+// Slayer Categories
+bestiary.getSlayerCategories().then(data => console.log(inspect(data, true, null, true)))
+
 // Weaknesses
 // bestiary.getWeaknesses().then(data => console.log(data))
-
-// Nex
-bestiary.getBeastById(18880).then(data => console.log(data))

@@ -1,6 +1,14 @@
 import { bestiary } from "../configs/runescape"
 import { Jagex, RuneScape } from "../types"
 
+export class Area {
+  name: string
+
+  constructor(area: Jagex.Bestiary.Area) {
+    this.name = area
+  }
+}
+
 export class Beast {
   id: number
   name: string
@@ -71,6 +79,29 @@ export class Beast {
       ranged: this.ranged,
       attack: this.attack,
       lifepoints: this.lifepoints,
+    }
+  }
+}
+
+export class SlayerCategory {
+  id: number
+  name: string
+
+  constructor(category: string | number) {
+    if (typeof category === "string") {
+      const [{ id }] = bestiary.slayerCategories.filter(
+        ({ name }) => name === category
+      )
+
+      this.id = id
+      this.name = category
+    } else {
+      const [{ id, name }] = bestiary.slayerCategories.filter(
+        ({ id }) => id === category
+      )
+
+      this.id = category
+      this.name = name
     }
   }
 }
