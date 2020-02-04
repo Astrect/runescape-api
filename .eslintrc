@@ -24,7 +24,11 @@
   },
   "overrides": [
     {
-      "files": ["./src/configs.ts", "./src/utils/Jagex.ts"],
+      "files": [
+        "./src/configs.ts",
+        "./src/utils/Jagex.ts",
+        "./src/utils/RuneMetricsProfile.ts"
+      ],
       "rules": {
         "@typescript-eslint/camelcase": "off"
       }
