@@ -79,6 +79,7 @@ export const getBeastsByArea = async (search: string | Area) => {
   }
 }
 
+// TODO: validate that the search string is any of the 52 approved strings (26 english letters -- upper and lowercase)
 export const getBeastsByFirstLetter = async (search: Letter) => {
   if (typeof search !== "string") {
     throw new TypeError("Search parameter must be a string")

@@ -1,6 +1,6 @@
 import { miscellaneous } from "../../runescape"
 
-test("Miscellaneous: Successfully fetch custom avatar URL with ID", () => {
+test("Miscellaneous: Successfully fetch custom avatar URL with ID", async () => {
   return miscellaneous.getAvatar("Tuffty").then(avatar => {
     expect(avatar).toBeDefined()
     expect(avatar).toBe(
@@ -9,7 +9,7 @@ test("Miscellaneous: Successfully fetch custom avatar URL with ID", () => {
   })
 })
 
-test("Miscellaneous: Successfully fetch default avatar URL", () => {
+test("Miscellaneous: Successfully fetch default avatar URL", async () => {
   return miscellaneous.getAvatar("Moderator").then(avatar => {
     expect(avatar).toBeDefined()
     expect(avatar).toBe(
@@ -18,14 +18,14 @@ test("Miscellaneous: Successfully fetch default avatar URL", () => {
   })
 })
 
-test("Miscellaneous: Expect TypeError on non-string avatar search parameters", () => {
+test("Miscellaneous: Expect TypeError on non-string avatar search parameters", async () => {
   // @ts-ignore-next-line
   return miscellaneous.getAvatar(0).then(avatar => {
     expect(avatar).toBeInstanceOf(TypeError)
   })
 })
 
-test("Miscellaneous: Successfully fetch total users", () => {
+test("Miscellaneous: Successfully fetch total users", async () => {
   // @ts-ignore-next-line
   return miscellaneous.getTotalUsers().then(users => {
     expect(users).toBeDefined()

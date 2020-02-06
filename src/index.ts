@@ -33,10 +33,10 @@ const demo = (async () => {
   // const data = await bestiary.getBeastsByArea("Glarial's tomb")
   // const data = await bestiary.getBeastsByTerms("cow")
   // const data = await bestiary.getBeastsByFirstLetter("c")
-  const data = await bestiary.getBeastsBySlayerCategory(new SlayerCategory("Kurask"))
+  // const data = await bestiary.getBeastsBySlayerCategory(new SlayerCategory("Kurask"))
   // const data = await bestiary.getBeastsByWeakness(new Weakness("Crushing" || 7))
 
-  // const data = await bestiary.getSlayerCategories()
+  const data = await bestiary.getSlayerCategories()
   // const data = await bestiary.getWeaknesses()
 
   // const data = await miscellaneous.getTotalUsers()
