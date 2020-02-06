@@ -16,7 +16,9 @@ export const getAreas = async () => {
     >()
 
     return areas.map(area => new Area(area))
-  } catch (error) {}
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeast = async (search: number | BeastSearchResult) => {
@@ -45,7 +47,9 @@ export const getBeast = async (search: number | BeastSearchResult) => {
     }).json<Jagex.Bestiary.Beast>()
 
     return new Beast(beast)
-  } catch (error) {}
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeastsByArea = async (search: string | Area) => {
@@ -60,16 +64,19 @@ export const getBeastsByArea = async (search: string | Area) => {
   } else {
     searchId = search.name
   }
+  try {
+    const beasts = await got(bestiary.endpoints.beastArea, {
+      searchParams: {
+        identifier: searchId,
+      },
+    }).json<Jagex.Bestiary.BeastBySearch[]>()
 
-  const beasts = await got(bestiary.endpoints.beastArea, {
-    searchParams: {
-      identifier: searchId,
-    },
-  }).json<Jagex.Bestiary.BeastBySearch[]>()
+    // TODO: the empty response for this endpoint is [ 'none' ]. Remove it for an empty array
 
-  // TODO: the empty response for this endpoint is [ 'none' ]. Remove it for an empty array
-
-  return beasts.map(beast => new BeastSearchResult(beast))
+    return beasts.map(beast => new BeastSearchResult(beast))
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeastsByFirstLetter = async (search: Letter) => {
@@ -81,15 +88,19 @@ export const getBeastsByFirstLetter = async (search: Letter) => {
     throw new Error("Search query must be a single letter")
   }
 
-  const beasts = await got(bestiary.endpoints.beastLetter, {
-    searchParams: {
-      letter: search.toUpperCase(),
-    },
-  }).json<Jagex.Bestiary.BeastBySearch[]>()
+  try {
+    const beasts = await got(bestiary.endpoints.beastLetter, {
+      searchParams: {
+        letter: search.toUpperCase(),
+      },
+    }).json<Jagex.Bestiary.BeastBySearch[]>()
 
-  // TODO: either trim, or clean up the "NPC" objects in the results
+    // TODO: either trim, or clean up the "NPC" objects in the results
 
-  return beasts.map(beast => new BeastSearchResult(beast))
+    return beasts.map(beast => new BeastSearchResult(beast))
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeastsByLevelRange = async (min: number, max: number) => {
@@ -107,13 +118,17 @@ export const getBeastsByLevelRange = async (min: number, max: number) => {
     )
   }
 
-  const beasts = await got(bestiary.endpoints.beastLevel, {
-    searchParams: {
-      identifier: `${min}-${max}`,
-    },
-  }).json<Jagex.Bestiary.BeastBySearch[]>()
+  try {
+    const beasts = await got(bestiary.endpoints.beastLevel, {
+      searchParams: {
+        identifier: `${min}-${max}`,
+      },
+    }).json<Jagex.Bestiary.BeastBySearch[]>()
 
-  return beasts.map(beast => new BeastSearchResult(beast))
+    return beasts.map(beast => new BeastSearchResult(beast))
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeastsBySlayerCategory = async (
@@ -136,13 +151,17 @@ export const getBeastsBySlayerCategory = async (
     searchId = search.id
   }
 
-  const beasts = await got(bestiary.endpoints.beastSlayer, {
-    searchParams: {
-      identifier: searchId,
-    },
-  }).json<Jagex.Bestiary.BeastBySearch[]>()
+  try {
+    const beasts = await got(bestiary.endpoints.beastSlayer, {
+      searchParams: {
+        identifier: searchId,
+      },
+    }).json<Jagex.Bestiary.BeastBySearch[]>()
 
-  return beasts.map(beast => new BeastSearchResult(beast))
+    return beasts.map(beast => new BeastSearchResult(beast))
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeastsByTerms = async (search: string) => {
@@ -150,13 +169,17 @@ export const getBeastsByTerms = async (search: string) => {
     throw new TypeError("Search parameter must be a string")
   }
 
-  const beasts = await got(bestiary.endpoints.beastTerm, {
-    searchParams: {
-      term: search,
-    },
-  }).json<Jagex.Bestiary.BeastBySearch[]>()
+  try {
+    const beasts = await got(bestiary.endpoints.beastTerm, {
+      searchParams: {
+        term: search,
+      },
+    }).json<Jagex.Bestiary.BeastBySearch[]>()
 
-  return beasts.map(beast => new BeastSearchResult(beast))
+    return beasts.map(beast => new BeastSearchResult(beast))
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getBeastsByWeakness = async (search: number | Weakness) => {
@@ -174,13 +197,17 @@ export const getBeastsByWeakness = async (search: number | Weakness) => {
     searchId = search.id
   }
 
-  const beasts = await got(bestiary.endpoints.beastWeakness, {
-    searchParams: {
-      identifier: searchId,
-    },
-  }).json<Jagex.Bestiary.BeastBySearch[]>()
+  try {
+    const beasts = await got(bestiary.endpoints.beastWeakness, {
+      searchParams: {
+        identifier: searchId,
+      },
+    }).json<Jagex.Bestiary.BeastBySearch[]>()
 
-  return beasts.map(beast => new BeastSearchResult(beast))
+    return beasts.map(beast => new BeastSearchResult(beast))
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getSlayerCategories = async () => {
@@ -192,7 +219,9 @@ export const getSlayerCategories = async () => {
     return Object.values(categories).map(
       category => new SlayerCategory(category)
     )
-  } catch (error) {}
+  } catch (error) {
+    throw new Error(error)
+  }
 }
 
 export const getWeaknesses = async () => {
@@ -202,5 +231,7 @@ export const getWeaknesses = async () => {
     >()
 
     return Object.values(weaknesses).map(i => new Weakness(i))
-  } catch (error) {}
+  } catch (error) {
+    throw new Error(error)
+  }
 }
