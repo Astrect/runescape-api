@@ -314,15 +314,18 @@ export const hiscores = {
     "invention",
   ] as const,
 }
+export const miscellaneous = {
+  endpoints: {
+    defaultAvatarUrl: `https://secure.runescape.com/m=avatar-rs/default_chat.png?`,
+    totalUsers: `https://secure.runescape.com/m=account-creation-reports/rsusertotal.ws`,
+  },
+}
 export const runemetrics = {
   endpoints: {
     profile: `https://apps.runescape.com/runemetrics/profile/profile`,
     monthlyXp: `https://apps.runescape.com/runemetrics/xp-monthly`,
     quests: `https://apps.runescape.com/runemetrics/quests`,
   },
-}
-export const miscellaneous = {
-  totalUsers: `https://secure.runescape.com/m=account-creation-reports/rsusertotal.ws`,
 }
 
 export default {

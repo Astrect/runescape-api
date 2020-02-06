@@ -12,22 +12,22 @@ export class Area {
 export class Beast {
   id: number
   name: string
-  examine: string
-  members: boolean
-  level: number
-  attack: number
-  defence: number
-  magic: number
-  ranged: number
-  lifepoints: number
-  xp: string
-  areas: Jagex.Bestiary.Areas
-  animations: Jagex.Bestiary.Animations
-  size: number
-  attackable: boolean
-  aggressive: boolean
-  poisonous: boolean
-  weakness: Weakness
+  examine?: string
+  members?: boolean
+  level?: number
+  attack?: number
+  defence?: number
+  magic?: number
+  ranged?: number
+  lifepoints?: number
+  xp?: string
+  areas?: Jagex.Bestiary.Areas
+  animations?: Jagex.Bestiary.Animations
+  size?: number
+  attackable?: boolean
+  aggressive?: boolean
+  poisonous?: boolean
+  weakness?: Weakness
 
   constructor(beast: Jagex.Bestiary.Beast) {
     this.id = beast.id
@@ -51,7 +51,7 @@ export class Beast {
     this.attackable = beast.attackable
     this.aggressive = beast.aggressive
     this.poisonous = beast.poisonous
-    this.weakness = new Weakness(beast.weakness)
+    this.weakness = beast.weakness ? new Weakness(beast.weakness) : undefined
   }
 
   get meta() {
@@ -83,6 +83,16 @@ export class Beast {
   }
 }
 
+export class BeastSearchResult {
+  id: number
+  name: string
+
+  constructor(beast: Jagex.Bestiary.BeastBySearch) {
+    this.id = beast.value
+    this.name = beast.label
+  }
+}
+
 export class SlayerCategory {
   id: number
   name: string
@@ -108,7 +118,7 @@ export class SlayerCategory {
 
 export class Weakness {
   id: number
-  name: RuneScape.Bestiary.Weakness
+  name: string
 
   constructor(weakness: Jagex.Bestiary.Weakness | number) {
     if (typeof weakness === "string") {

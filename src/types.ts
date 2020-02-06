@@ -1,13 +1,13 @@
-import { hiscores, bestiary } from "./configs/runescape"
-import { SlayerCategory } from "./lib/RuneScape"
+import { bestiary, hiscores } from "./configs/runescape"
+import { Beast } from "./lib/RuneScape"
 
 export type Activities = typeof hiscores.activities[number]
 export type Activity = {
   rank: number
   count: number
 }
-export type Avatar = string
-export type Gamemode = "normal" | "ironman" | "hardcore"
+// export type Avatar = string
+// export type Gamemode = "normal" | "ironman" | "hardcore"
 export type PlayerSkills<K extends string = Skills> = { [key in K]: Skill }
 export type PlayerActivites<K extends string = Activities> = {
   [key in K]: Activity
@@ -18,7 +18,6 @@ export type Skill = {
   level: number
   experience: number
 }
-export type SlayerBeastSearchMethods = typeof bestiary.searchMethods[number]
 
 export namespace Jagex {
   export namespace Bestiary {
@@ -29,24 +28,28 @@ export namespace Jagex {
     export type Area = string
     export type Areas = Area[]
     export type Beast = {
-      magic: number
-      defence: number
-      ranged: number
-      attack: number
-      level: number
-      size: number
-      members: boolean
-      animations: Animations
+      magic?: number
+      defence?: number
+      ranged?: number
+      attack?: number
+      level?: number
+      size?: number
+      members?: boolean
+      animations?: Animations
       name: string
-      xp: string
-      description: string
-      areas: Areas
+      xp?: string
+      description?: string
+      areas?: Areas
       id: number
-      aggressive: boolean
-      poisonous: boolean
-      attackable: boolean
-      weakness: Weakness
-      lifepoints: number
+      aggressive?: boolean
+      poisonous?: boolean
+      attackable?: boolean
+      weakness?: Weakness
+      lifepoints?: number
+    }
+    export type BeastBySearch = {
+      label: string
+      value: number
     }
     export type BeastSearchMethods = typeof bestiary.searchMethods[number]
     export type SlayerCategories = {
@@ -240,6 +243,9 @@ export namespace Jagex {
     export type Player = unknown
     export type Gamemode = typeof hiscores.gamemodes[number]
   }
+  export namespace Miscellaneous {
+    export type TotalUsers = { accounts: number; accountsformatted: string }
+  }
   export namespace RuneMetrics {
     export type Profile = unknown
     export type MonthlyExperience = unknown
@@ -250,12 +256,72 @@ export namespace Jagex {
 export namespace RuneScape {
   export namespace Bestiary {
     export type Areas = unknown
-    export type Beast = unknown
-    export type Beasts = unknown
-    export type Weakness = typeof bestiary.weaknesses[number]
+    export type Beasts = Beast[]
+    export type BeastSearchMethods = typeof bestiary.searchMethods[number]
+    export type BeastSearchOptions = {
+      method: RuneScape.Bestiary.BeastSearchMethods
+    }
   }
   export namespace Clan {}
   export namespace GrandExchange {}
   export namespace Hiscores {}
   export namespace RuneMetrics {}
 }
+
+// TODO: Extract this to it's own package @pqt/types
+export type Letter = LowercaseLetter | UppercaseLetter
+export type LowercaseLetter =
+  | "a"
+  | "b"
+  | "c"
+  | "d"
+  | "e"
+  | "f"
+  | "g"
+  | "h"
+  | "i"
+  | "j"
+  | "k"
+  | "l"
+  | "m"
+  | "n"
+  | "o"
+  | "p"
+  | "q"
+  | "r"
+  | "s"
+  | "t"
+  | "u"
+  | "v"
+  | "w"
+  | "x"
+  | "y"
+  | "z"
+
+export type UppercaseLetter =
+  | "A"
+  | "B"
+  | "C"
+  | "D"
+  | "E"
+  | "F"
+  | "G"
+  | "H"
+  | "I"
+  | "J"
+  | "K"
+  | "L"
+  | "M"
+  | "N"
+  | "O"
+  | "P"
+  | "Q"
+  | "R"
+  | "S"
+  | "T"
+  | "U"
+  | "V"
+  | "W"
+  | "X"
+  | "Y"
+  | "Z"
