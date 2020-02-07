@@ -1,5 +1,6 @@
-import { bestiary, grandexchange } from "../configs/runescape"
-import { Jagex } from "../types"
+import { bestiary, grandexchange, hiscores } from "../configs/runescape"
+import { Jagex, RuneScape } from "../types"
+import { formatRuneMetricsProfileSkills } from "../utils/Jagex"
 
 export class Area {
   name: string
@@ -121,6 +122,103 @@ export class GrandExchangeCategory {
     } else {
       this.id = category
       this.name = grandexchange.categories[category]
+    }
+  }
+}
+
+export class Player {
+  name: string
+  activities: Jagex.Hiscores.PlayerActivites
+  skills: Jagex.Hiscores.PlayerSkills
+
+  constructor(name: string, player: Jagex.Hiscores.PlayerJSON) {
+    this.name = name
+    this.activities = player.activities
+    this.skills = player.skills
+  }
+}
+
+export class Quest {
+  name: string
+  status: RuneScape.RuneMetrics.QuestStatus
+  difficulty: number
+  members: boolean
+  questPoints: number
+  eligible: boolean
+
+  constructor(quest: Jagex.RuneMetrics.Quest) {
+    this.name = quest.title
+    this.status = quest.status
+    this.difficulty = quest.difficulty
+    this.members = quest.members
+    this.questPoints = quest.questPoints
+    this.eligible = quest.userEligible
+  }
+}
+
+export class RuneMetricsMonthlyExperience {
+  skill: Skill
+  totalExperience: number
+  totalGain: number
+  monthData: any[]
+
+  constructor(monthlyExperienceGain: Jagex.RuneMetrics.MonthlyExperienceGain) {
+    this.skill = new Skill(monthlyExperienceGain.skillId)
+    this.totalExperience = monthlyExperienceGain.totalXp
+    this.totalGain = monthlyExperienceGain.totalGain
+    this.monthData = monthlyExperienceGain.monthData
+  }
+}
+
+export class RuneMetricsProfile {
+  name: string
+  combatLevel: number
+  activities: RuneScape.RuneMetrics.ProfileActivities[]
+  overall: RuneScape.RuneMetrics.ProfileOverall
+  skills: RuneScape.RuneMetrics.ProfileSkills
+  quests: RuneScape.RuneMetrics.ProfileQuests
+  experience_distribution: RuneScape.RuneMetrics.ProfileExperienceDistribution
+
+  constructor(profile: Jagex.RuneMetrics.Profile) {
+    this.name = profile.name
+    this.combatLevel = profile.combatlevel
+    this.experience_distribution = {
+      magic: profile.magic,
+      melee: profile.melee,
+      ranged: profile.ranged,
+    }
+    this.overall = {
+      rank: parseInt(profile.rank.replace(",", "")),
+      level: profile.totalskill,
+      experience: profile.totalxp,
+    }
+    this.skills = formatRuneMetricsProfileSkills(profile.skillvalues)
+    this.quests = {
+      complete: profile.questscomplete,
+      started: profile.questsstarted,
+      not_started: profile.questsnotstarted,
+    }
+    this.activities = profile.activities.map(({ text, details, date }) => {
+      return {
+        title: text,
+        description: details,
+        date,
+      }
+    })
+  }
+}
+
+export class Skill {
+  id: number
+  name: string
+
+  constructor(skill: RuneScape.Hiscores.Skill | number) {
+    if (typeof skill === "string") {
+      this.id = hiscores.skills.indexOf(skill)
+      this.name = skill
+    } else {
+      this.id = skill
+      this.name = hiscores.skills[skill]
     }
   }
 }

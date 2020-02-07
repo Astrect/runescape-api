@@ -195,9 +195,11 @@ export const bestiary = {
     "Thrown",
   ] as const,
 }
-export const clan = {endpoints: {
-  members: `http://services.runescape.com/m=clan-hiscores/members_lite.ws`,
-}}
+export const clan = {
+  endpoints: {
+    members: `http://services.runescape.com/m=clan-hiscores/members_lite.ws`,
+  },
+}
 export const grandexchange = {
   endpoints: {
     category: `http://services.runescape.com/m=itemdb_rs/api/catalogue/category.json?category=`,
@@ -251,7 +253,6 @@ export const hiscores = {
     normal: `http://services.runescape.com/m=hiscore/index_lite.ws`,
     ironman: `http://services.runescape.com/m=hiscore_ironman/index_lite.ws`,
     hardcore: `http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws`,
-    clan: `http://services.runescape.com/m=clan-hiscores/members_lite.ws`,
   },
   activities: [
     "bounty_hunters",
@@ -329,6 +330,7 @@ export const runemetrics = {
     monthlyXp: `https://apps.runescape.com/runemetrics/xp-monthly`,
     quests: `https://apps.runescape.com/runemetrics/quests`,
   },
+  questStatuses: ["NOT_STARTED", "STARTED", "COMPLETED"] as const,
 }
 
 export default {

@@ -1,4 +1,9 @@
-import { Weakness, SlayerCategory, GrandExchangeCategory } from "./lib/RuneScape"
+import {
+  Weakness,
+  SlayerCategory,
+  GrandExchangeCategory,
+  Skill,
+} from "./lib/RuneScape"
 import * as oldschool from "./osrs"
 import * as bestiary from "./runescape/bestiary"
 import * as clan from "./runescape/clan"
@@ -43,7 +48,15 @@ const demo = (async () => {
   // const data = await clan.getMembers("Royal 58")
 
   // const data = await grandexchange.getCategories()
-  const data = await grandexchange.getCategoryItemsCount(new GrandExchangeCategory("Arrows"))
+  // const data = await grandexchange.getCategoryItemsCount(new GrandExchangeCategory("Arrows"))
+
+  // const data = await hiscores.getPlayer("Paqt")
+  // const data = await hiscores.getPlayer("Iron Soren", { gamemode: "ironman" })
+  // const data = await hiscores.getPlayer("J a me s", { gamemode: "hardcore" })
+
+  // const data = await runemetrics.getProfile("Paqt")
+  // const data = await runemetrics.getMonthlyXp("Conundrum129", new Skill("woodcutting"))
+  const data = await runemetrics.getQuests("Paqt")
 
   console.log(data)
 })()

@@ -1,23 +1,9 @@
-import { bestiary, hiscores, grandexchange } from "./configs/runescape"
-import { Beast } from "./lib/RuneScape"
-
-export type Activities = typeof hiscores.activities[number]
-export type Activity = {
-  rank: number
-  count: number
-}
-// export type Avatar = string
-// export type Gamemode = "normal" | "ironman" | "hardcore"
-export type PlayerSkills<K extends string = Skills> = { [key in K]: Skill }
-export type PlayerActivites<K extends string = Activities> = {
-  [key in K]: Activity
-}
-export type Skills = typeof hiscores.skills[number]
-export type Skill = {
-  rank: number
-  level: number
-  experience: number
-}
+import {
+  bestiary,
+  grandexchange,
+  hiscores,
+  runemetrics,
+} from "./configs/runescape"
 
 export namespace Jagex {
   export namespace Bestiary {
@@ -234,7 +220,7 @@ export namespace Jagex {
     export type Members = string
   }
   export namespace GrandExchange {
-    export type Categories = typeof grandexchange.categories
+    //  type Categories = typeof grandexchange.categories
     export type Category = typeof grandexchange.categories[number]
     export type CategoryItemsCount = {
       types: never[]
@@ -246,17 +232,124 @@ export namespace Jagex {
     // export type ItemGraph = unknown
   }
   export namespace Hiscores {
+    type Activities = typeof hiscores.activities[number]
+    type Activity = {
+      rank: number
+      count: number
+    }
     export type Chathead = string
-    export type Player = unknown
+    export type Player = string
+    export type PlayerJSON = {
+      activities: PlayerActivites
+      skills: PlayerSkills
+    }
+    export type PlayerActivites<K extends string = Activities> = {
+      [key in K]: Activity
+    }
+    export type PlayerSkills<K extends string = Skills> = { [key in K]: Skill }
+    type Skills = typeof hiscores.skills[number]
+    type Skill = {
+      rank: number
+      level: number
+      experience: number
+    }
     export type Gamemode = typeof hiscores.gamemodes[number]
   }
   export namespace Miscellaneous {
     export type TotalUsers = { accounts: number; accountsformatted: string }
   }
   export namespace RuneMetrics {
-    export type Profile = unknown
-    export type MonthlyExperience = unknown
-    export type Quests = unknown
+    export type MonthlyExperience = {
+      monthlyXpGain: MonthlyExperienceGain[]
+      loggedIn: string
+    }
+    export type MonthlyExperienceGain = {
+      skillId: number
+      totalXp: number
+      averageXpGain: number
+      totalGain: number
+      monthData: any[]
+    }
+    export type Profile = {
+      magic: number
+      questsstarted: number
+      totalskill: number
+      questscomplete: number
+      questsnotstarted: number
+      totalxp: number
+      ranged: number
+      activities: ProfileActivities[]
+      skillvalues: ProfileSkills[]
+      name: string
+      rank: string
+      melee: number
+      combatlevel: number
+      loggedIn: string
+    }
+    type ProfileActivities = {
+      date: string
+      details: string
+      text: string
+    }
+    export type ProfileSkills = {
+      level: number
+      xp: number
+      rank: number
+      id: number
+    }
+    export type Quests = {
+      quests: Quest[]
+      loggedIn: string
+    }
+    export type Quest = {
+      title: string
+      status: RuneScape.RuneMetrics.QuestStatus
+      difficulty: number
+      members: boolean
+      questPoints: number
+      userEligible: boolean
+    }
+  }
+}
+
+export namespace RuneScape {
+  export namespace Hiscores {
+    export type Skill = typeof hiscores.skills[number]
+  }
+
+  export namespace RuneMetrics {
+    export type ProfileActivities = {
+      title: string
+      description: string
+      date: string
+    }
+    export type ProfileSkills<K extends string = Hiscores.Skill> = {
+      [key in K]: {
+        rank: number
+        level: number
+        experience: number
+      }
+    }
+
+    export type ProfileQuests = {
+      complete: number
+      started: number
+      not_started: number
+    }
+
+    export type ProfileOverall = {
+      rank: number
+      level: number
+      experience: number
+    }
+
+    export type ProfileExperienceDistribution = {
+      magic: number
+      melee: number
+      ranged: number
+    }
+
+    export type QuestStatus = typeof runemetrics.questStatuses[number]
   }
 }
 

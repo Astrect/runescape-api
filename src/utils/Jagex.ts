@@ -1,41 +1,71 @@
 import { hiscores } from "../configs/runescape"
-import { PlayerActivites, PlayerSkills, Jagex } from "../types"
+import { Jagex } from "../types"
 
+const defaultSkillTree: Jagex.Hiscores.PlayerSkills = {
+  overall: { rank: 0, level: 1, experience: 0 },
+  attack: { rank: 0, level: 1, experience: 0 },
+  defence: { rank: 0, level: 1, experience: 0 },
+  strength: { rank: 0, level: 1, experience: 0 },
+  constitution: { rank: 0, level: 1, experience: 0 },
+  ranged: { rank: 0, level: 1, experience: 0 },
+  prayer: { rank: 0, level: 1, experience: 0 },
+  magic: { rank: 0, level: 1, experience: 0 },
+  cooking: { rank: 0, level: 1, experience: 0 },
+  woodcutting: { rank: 0, level: 1, experience: 0 },
+  fletching: { rank: 0, level: 1, experience: 0 },
+  fishing: { rank: 0, level: 1, experience: 0 },
+  firemaking: { rank: 0, level: 1, experience: 0 },
+  crafting: { rank: 0, level: 1, experience: 0 },
+  smithing: { rank: 0, level: 1, experience: 0 },
+  mining: { rank: 0, level: 1, experience: 0 },
+  herblore: { rank: 0, level: 1, experience: 0 },
+  agility: { rank: 0, level: 1, experience: 0 },
+  thieving: { rank: 0, level: 1, experience: 0 },
+  slayer: { rank: 0, level: 1, experience: 0 },
+  farming: { rank: 0, level: 1, experience: 0 },
+  runecrafting: { rank: 0, level: 1, experience: 0 },
+  hunter: { rank: 0, level: 1, experience: 0 },
+  construction: { rank: 0, level: 1, experience: 0 },
+  summoning: { rank: 0, level: 1, experience: 0 },
+  dungeoneering: { rank: 0, level: 1, experience: 0 },
+  divination: { rank: 0, level: 1, experience: 0 },
+  invention: { rank: 0, level: 1, experience: 0 },
+}
 const separateIntoLines = (jagexPlayer: string): string[] => {
   return jagexPlayer.split("\n")
 }
 const formatActivities = (activitiesArray: string[]) => {
-  const activities: PlayerActivites = {
-    bounty_hunters: { rank: -1, count: -1 },
-    bh_rogues: { rank: -1, count: -1 },
-    dominion_tower: { rank: -1, count: -1 },
-    the_crucible: { rank: -1, count: -1 },
-    castle_wars_games: { rank: -1, count: -1 },
-    ba_attackers: { rank: -1, count: -1 },
-    ba_defenders: { rank: -1, count: -1 },
-    ba_collectors: { rank: -1, count: -1 },
-    ba_healers: { rank: -1, count: -1 },
-    duel_tournament: { rank: -1, count: -1 },
-    mobilising_armies: { rank: -1, count: -1 },
-    conquest: { rank: -1, count: -1 },
-    fist_of_guthix: { rank: -1, count: -1 },
-    gg_resource_race: { rank: -1, count: -1 },
-    gg_athletics: { rank: -1, count: -1 },
-    we2_armadyl_lifetime_contribution: { rank: -1, count: -1 },
-    we2_bandos_lifetime_contribution: { rank: -1, count: -1 },
-    we2_armadyl_pvp_kills: { rank: -1, count: -1 },
-    we2_bandos_pvp_kills: { rank: -1, count: -1 },
-    heist_guard_level: { rank: -1, count: -1 },
-    heist_robber_level: { rank: -1, count: -1 },
-    cfp_5_game_average: { rank: -1, count: -1 },
-    af15_cow_tipping: { rank: -1, count: -1 },
-    af15_rats_killed_after_the_miniquest: { rank: -1, count: -1 },
-    runescore: { rank: -1, count: -1 },
-    clue_scrolls_easy: { rank: -1, count: -1 },
-    clue_scrolls_medium: { rank: -1, count: -1 },
-    clue_scrolls_hard: { rank: -1, count: -1 },
-    clue_scrolls_elite: { rank: -1, count: -1 },
-    clue_scrolls_master: { rank: -1, count: -1 },
+  const activities: Jagex.Hiscores.PlayerActivites = {
+    bounty_hunters: { rank: 0, count: 0 },
+    bh_rogues: { rank: 0, count: 0 },
+    dominion_tower: { rank: 0, count: 0 },
+    the_crucible: { rank: 0, count: 0 },
+    castle_wars_games: { rank: 0, count: 0 },
+    ba_attackers: { rank: 0, count: 0 },
+    ba_defenders: { rank: 0, count: 0 },
+    ba_collectors: { rank: 0, count: 0 },
+    ba_healers: { rank: 0, count: 0 },
+    duel_tournament: { rank: 0, count: 0 },
+    mobilising_armies: { rank: 0, count: 0 },
+    conquest: { rank: 0, count: 0 },
+    fist_of_guthix: { rank: 0, count: 0 },
+    gg_resource_race: { rank: 0, count: 0 },
+    gg_athletics: { rank: 0, count: 0 },
+    we2_armadyl_lifetime_contribution: { rank: 0, count: 0 },
+    we2_bandos_lifetime_contribution: { rank: 0, count: 0 },
+    we2_armadyl_pvp_kills: { rank: 0, count: 0 },
+    we2_bandos_pvp_kills: { rank: 0, count: 0 },
+    heist_guard_level: { rank: 0, count: 0 },
+    heist_robber_level: { rank: 0, count: 0 },
+    cfp_5_game_average: { rank: 0, count: 0 },
+    af15_cow_tipping: { rank: 0, count: 0 },
+    af15_rats_killed_after_the_miniquest: { rank: 0, count: 0 },
+    runescore: { rank: 0, count: 0 },
+    clue_scrolls_easy: { rank: 0, count: 0 },
+    clue_scrolls_medium: { rank: 0, count: 0 },
+    clue_scrolls_hard: { rank: 0, count: 0 },
+    clue_scrolls_elite: { rank: 0, count: 0 },
+    clue_scrolls_master: { rank: 0, count: 0 },
   }
 
   hiscores.activities.map((activityName, index) => {
@@ -46,36 +76,7 @@ const formatActivities = (activitiesArray: string[]) => {
   return activities
 }
 const formatSkills = (skillsArray: string[]) => {
-  const skills: PlayerSkills = {
-    overall: { rank: -1, level: -1, experience: -1 },
-    attack: { rank: -1, level: -1, experience: -1 },
-    defence: { rank: -1, level: -1, experience: -1 },
-    strength: { rank: -1, level: -1, experience: -1 },
-    constitution: { rank: -1, level: -1, experience: -1 },
-    ranged: { rank: -1, level: -1, experience: -1 },
-    prayer: { rank: -1, level: -1, experience: -1 },
-    magic: { rank: -1, level: -1, experience: -1 },
-    cooking: { rank: -1, level: -1, experience: -1 },
-    woodcutting: { rank: -1, level: -1, experience: -1 },
-    fletching: { rank: -1, level: -1, experience: -1 },
-    fishing: { rank: -1, level: -1, experience: -1 },
-    firemaking: { rank: -1, level: -1, experience: -1 },
-    crafting: { rank: -1, level: -1, experience: -1 },
-    smithing: { rank: -1, level: -1, experience: -1 },
-    mining: { rank: -1, level: -1, experience: -1 },
-    herblore: { rank: -1, level: -1, experience: -1 },
-    agility: { rank: -1, level: -1, experience: -1 },
-    thieving: { rank: -1, level: -1, experience: -1 },
-    slayer: { rank: -1, level: -1, experience: -1 },
-    farming: { rank: -1, level: -1, experience: -1 },
-    runecrafting: { rank: -1, level: -1, experience: -1 },
-    hunter: { rank: -1, level: -1, experience: -1 },
-    construction: { rank: -1, level: -1, experience: -1 },
-    summoning: { rank: -1, level: -1, experience: -1 },
-    dungeoneering: { rank: -1, level: -1, experience: -1 },
-    divination: { rank: -1, level: -1, experience: -1 },
-    invention: { rank: -1, level: -1, experience: -1 },
-  }
+  const skills = { ...defaultSkillTree }
 
   hiscores.skills.map((skillName, index) => {
     const [rank, level, experience] = skillsArray[index].split(",")
@@ -88,22 +89,28 @@ const formatSkills = (skillsArray: string[]) => {
 
   return skills
 }
-const formatClanMembers = (membersArray: string[]) => {
-  const members: any = {}
+export const formatRuneMetricsProfileSkills = (
+  skillsArray: Jagex.RuneMetrics.ProfileSkills[]
+) => {
+  const skills = { ...defaultSkillTree }
 
-  membersArray.map(member => {
-    const [name, rank, experience, kills] = member.split(",")
-    const regex = new RegExp(/\uFFFD/g)
-    members[name.replace(regex, " ")] = {
+  hiscores.skills.map((skillName, index) => {
+    const { rank, level, xp: experience } = skillsArray.find(
+      skill => skill.id === index
+    ) || { rank: 0, level: 1, xp: 0 }
+
+    skills[skillName] = {
       rank,
-      experience: parseInt(experience),
-      kills: parseInt(kills),
+      level,
+      experience,
     }
   })
 
-  return members
+  return skills
 }
-export const parseJagexPlayerToJSON = (jagexPlayer: string) => {
+export const parseJagexPlayerToJSON = (
+  jagexPlayer: string
+): Jagex.Hiscores.PlayerJSON => {
   const lines = separateIntoLines(jagexPlayer)
   const [skillsStartIndex, skillsEndIndex] = [0, hiscores.skills.length]
   const [activitiesStartIndex, activitiesEndIndex] = [
@@ -128,7 +135,7 @@ export const parseJagexClanToArray = (
 ): Jagex.Clan.Member[] => {
   const lines = separateIntoLines(jagexClan)
   // const members = formatClanMembers()
-  return [...lines.slice(1, -1)]
+  return [...lines.slice(1, 0)]
 
   // return members
 }
