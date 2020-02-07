@@ -1,4 +1,4 @@
-import { bestiary, hiscores } from "./configs/runescape"
+import { bestiary, hiscores, grandexchange } from "./configs/runescape"
 import { Beast } from "./lib/RuneScape"
 
 export type Activities = typeof hiscores.activities[number]
@@ -230,13 +230,20 @@ export namespace Jagex {
     }
   }
   export namespace Clan {
-    export type Members = unknown
+    export type Member = string
+    export type Members = string
   }
   export namespace GrandExchange {
-    export type Categories = unknown
-    export type CategoryPrices = unknown
-    export type Item = unknown
-    export type ItemGraph = unknown
+    export type Categories = typeof grandexchange.categories
+    export type Category = typeof grandexchange.categories[number]
+    export type CategoryItemsCount = {
+      types: never[]
+      alpha: { letter: string; items: number }[]
+    }
+    // export type Category = unknown
+    // export type CategoryPrices = unknown
+    // export type Item = unknown
+    // export type ItemGraph = unknown
   }
   export namespace Hiscores {
     export type Chathead = string
@@ -251,21 +258,6 @@ export namespace Jagex {
     export type MonthlyExperience = unknown
     export type Quests = unknown
   }
-}
-
-export namespace RuneScape {
-  export namespace Bestiary {
-    export type Areas = unknown
-    export type Beasts = Beast[]
-    export type BeastSearchMethods = typeof bestiary.searchMethods[number]
-    export type BeastSearchOptions = {
-      method: RuneScape.Bestiary.BeastSearchMethods
-    }
-  }
-  export namespace Clan {}
-  export namespace GrandExchange {}
-  export namespace Hiscores {}
-  export namespace RuneMetrics {}
 }
 
 // TODO: Extract this to it's own package @pqt/types

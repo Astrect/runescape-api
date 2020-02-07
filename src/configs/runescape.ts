@@ -195,6 +195,9 @@ export const bestiary = {
     "Thrown",
   ] as const,
 }
+export const clan = {endpoints: {
+  members: `http://services.runescape.com/m=clan-hiscores/members_lite.ws`,
+}}
 export const grandexchange = {
   endpoints: {
     category: `http://services.runescape.com/m=itemdb_rs/api/catalogue/category.json?category=`,
@@ -241,7 +244,7 @@ export const grandexchange = {
     "Tools and containers",
     "Woodcutting product",
     "Pocket items",
-  ],
+  ] as const,
 }
 export const hiscores = {
   endpoints: {
@@ -330,6 +333,7 @@ export const runemetrics = {
 
 export default {
   bestiary,
+  clan,
   grandexchange,
   hiscores,
   runemetrics,

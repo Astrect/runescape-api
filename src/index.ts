@@ -1,4 +1,4 @@
-import { Weakness, SlayerCategory } from "./lib/RuneScape"
+import { Weakness, SlayerCategory, GrandExchangeCategory } from "./lib/RuneScape"
 import * as oldschool from "./osrs"
 import * as bestiary from "./runescape/bestiary"
 import * as clan from "./runescape/clan"
@@ -28,7 +28,8 @@ export default {
 
 const demo = (async () => {
   // const data = await bestiary.getAreas()
-
+  // const data = await bestiary.getSlayerCategories()
+  // const data = await bestiary.getWeaknesses()
   // const data = await bestiary.getBeast(16705)
   // const data = await bestiary.getBeastsByArea("Glarial's tomb")
   // const data = await bestiary.getBeastsByTerms("cow")
@@ -36,10 +37,13 @@ const demo = (async () => {
   // const data = await bestiary.getBeastsBySlayerCategory(new SlayerCategory("Kurask"))
   // const data = await bestiary.getBeastsByWeakness(new Weakness("Crushing" || 7))
 
-  const data = await bestiary.getSlayerCategories()
-  // const data = await bestiary.getWeaknesses()
-
+  // const data = await miscellaneous.getAvatar("Paqt")
   // const data = await miscellaneous.getTotalUsers()
+
+  // const data = await clan.getMembers("Royal 58")
+
+  // const data = await grandexchange.getCategories()
+  const data = await grandexchange.getCategoryItemsCount(new GrandExchangeCategory("Arrows"))
 
   console.log(data)
 })()

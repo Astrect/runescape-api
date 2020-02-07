@@ -1,5 +1,5 @@
 import { hiscores } from "../configs/runescape"
-import { PlayerActivites, PlayerSkills } from "../types"
+import { PlayerActivites, PlayerSkills, Jagex } from "../types"
 
 const separateIntoLines = (jagexPlayer: string): string[] => {
   return jagexPlayer.split("\n")
@@ -123,9 +123,12 @@ export const parseJagexPlayerToJSON = (jagexPlayer: string) => {
     skills,
   }
 }
-export const parseJagexClanToJSON = (jagexClan: string) => {
+export const parseJagexClanToArray = (
+  jagexClan: string
+): Jagex.Clan.Member[] => {
   const lines = separateIntoLines(jagexClan)
-  const members = formatClanMembers([...lines.slice(1, -1)])
+  // const members = formatClanMembers()
+  return [...lines.slice(1, -1)]
 
-  return members
+  // return members
 }

@@ -1,5 +1,5 @@
-import { bestiary } from "../configs/runescape"
-import { Jagex, RuneScape } from "../types"
+import { bestiary, grandexchange } from "../configs/runescape"
+import { Jagex } from "../types"
 
 export class Area {
   name: string
@@ -90,6 +90,38 @@ export class BeastSearchResult {
   constructor(beast: Jagex.Bestiary.BeastBySearch) {
     this.id = beast.value
     this.name = beast.label
+  }
+}
+
+export class ClanMember {
+  name: string
+  rank: string
+  experience: number
+  kills: number
+
+  constructor(member: Jagex.Clan.Member) {
+    const [name, rank, experience, kills] = member.split(",")
+    const regex = new RegExp(/\uFFFD/g)
+
+    this.name = name.replace(regex, " ")
+    this.rank = rank
+    this.experience = parseInt(experience)
+    this.kills = parseInt(kills)
+  }
+}
+
+export class GrandExchangeCategory {
+  id: number
+  name: string
+
+  constructor(category: Jagex.GrandExchange.Category | number) {
+    if (typeof category === "string") {
+      this.id = grandexchange.categories.indexOf(category)
+      this.name = category
+    } else {
+      this.id = category
+      this.name = grandexchange.categories[category]
+    }
   }
 }
 

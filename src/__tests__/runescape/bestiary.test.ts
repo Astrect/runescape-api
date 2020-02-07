@@ -7,7 +7,7 @@ import {
 } from "../../lib/RuneScape"
 import { bestiary } from "../../runescape"
 
-test("Bestiary areas are defined and contain an array of Area instances", async () => {
+test("Fetch all areas", async () => {
   return bestiary.getAreas().then(data => {
     expect(data).toBeDefined()
 
