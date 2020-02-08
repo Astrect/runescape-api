@@ -5,6 +5,7 @@ import * as grandexchange from "./runescape/grandexchange"
 import * as hiscores from "./runescape/hiscores"
 import * as miscellaneous from "./runescape/miscellaneous"
 import * as runemetrics from "./runescape/runemetrics"
+import { Skill } from "./lib/RuneScape"
 
 export {
   bestiary,
@@ -53,10 +54,13 @@ const demo = async () => {
   // const data = await miscellaneous.getTotalUsers()
   // RuneMetrics
   // const data = await runemetrics.getProfile("Paqt")
-  // const data = await runemetrics.getMonthlyXp("Conundrum129", new Skill("woodcutting"))
+  const data = await runemetrics.getMonthlyXp(
+    "Conundrum129",
+    new Skill("woodcutting")
+  )
   // const data = await runemetrics.getQuests("Paqt")
   // LOG IT!
-  // console.log(data)
+  console.log(data)
 }
 demo()
 

@@ -54,7 +54,7 @@ export const getProfile = async (name: string) => {
       },
     }).json<Jagex.RuneMetrics.Profile>()
 
-    return new RuneMetricsProfile(profile).skills
+    return new RuneMetricsProfile(profile)
   } catch (error) {
     throw new Error(error)
   }

@@ -5,9 +5,11 @@ import { GrandExchangeCategory, Item, ItemGraph } from "../lib/RuneScape"
 
 // TODO: Clean up these function names and improve the returned data (getCategories, getCategoryItemsCount, getCategoryItems)
 export const getCategories = async () => {
-  return await new Promise(() =>
-    grandexchange.categories.map(
-      category => new GrandExchangeCategory(category)
+  return await new Promise<GrandExchangeCategory[]>(resolve =>
+    resolve(
+      grandexchange.categories.map(
+        category => new GrandExchangeCategory(category)
+      )
     )
   )
 }
@@ -80,7 +82,7 @@ export const getCategoryItems = async (
         alpha: prefix.toLowerCase(),
         page,
       },
-    }).json()
+    }).json<Jagex.GrandExchange.CategoryItems>()
 
     return response
   } catch (error) {

@@ -226,7 +226,10 @@ export namespace Jagex {
       types: never[]
       alpha: { letter: string; items: number }[]
     }
-    // export type Category = unknown
+    export type CategoryItems = {
+      total: number
+      items: Item[]
+    }
     // export type CategoryPrices = unknown
     export type Item = {
       icon: string
@@ -239,9 +242,9 @@ export namespace Jagex {
       current: ItemTrend
       today: ItemTrend
       members: string
-      day30: ItemTrend
-      day90: ItemTrend
-      day180: ItemTrend
+      day30?: ItemTrend
+      day90?: ItemTrend
+      day180?: ItemTrend
     }
 
     type ItemTrend = {
