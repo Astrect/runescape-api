@@ -126,6 +126,53 @@ export class GrandExchangeCategory {
   }
 }
 
+export class Item {
+  id: number
+  examine: string
+  category: GrandExchangeCategory
+  members: boolean
+  icons: { default: string; large: string }
+  trends: {
+    current: { trend: string; price: string }
+    today: { trend: string; price: string }
+    day30: { trend: string; price: string }
+    day90: { trend: string; price: string }
+    day180: { trend: string; price: string }
+  }
+
+  constructor(item: Jagex.GrandExchange.Item) {
+    this.id = item.id
+    this.examine = item.description
+    this.category = new GrandExchangeCategory(item.type)
+    this.members = item.members === "true" ? true : false
+
+    this.icons = {
+      default: item.icon,
+      large: item.icon_large,
+    }
+
+    this.trends = {
+      current: item.current,
+      today: item.today,
+      day30: item.day30,
+      day90: item.day90,
+      day180: item.day180,
+    }
+  }
+}
+
+export class ItemGraph {
+  id: number
+  daily: { [key: string]: number }
+  average: { [key: string]: number }
+
+  constructor(id: number, graph: Jagex.GrandExchange.ItemGraph) {
+    this.id = id
+    this.daily = graph.daily
+    this.average = graph.average
+  }
+}
+
 export class Player {
   name: string
   activities: Jagex.Hiscores.PlayerActivites
@@ -236,7 +283,7 @@ export class SlayerCategory {
       this.id = id
       this.name = category
     } else {
-      const [{ id, name }] = bestiary.slayerCategories.filter(
+      const [{ name }] = bestiary.slayerCategories.filter(
         ({ id }) => id === category
       )
 

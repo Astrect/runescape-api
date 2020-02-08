@@ -1,12 +1,12 @@
 import got from "got"
 import { runemetrics } from "../configs/runescape"
-import { Jagex, RuneScape } from "../types"
 import {
-  RuneMetricsProfile,
-  RuneMetricsMonthlyExperience,
-  Skill,
   Quest,
+  RuneMetricsMonthlyExperience,
+  RuneMetricsProfile,
+  Skill,
 } from "../lib/RuneScape"
+import { Jagex } from "../types"
 
 // TODO: Accept Skill class instance
 // TODO: Fail spectacularly if their profile is "unavailable" (may just mean they're private)

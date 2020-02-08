@@ -203,9 +203,9 @@ export const clan = {
 export const grandexchange = {
   endpoints: {
     category: `http://services.runescape.com/m=itemdb_rs/api/catalogue/category.json?category=`,
-    categoryPrices: `http://services.runescape.com/m=itemdb_rs/api/catalogue/items.json?`,
+    categoryItems: `http://services.runescape.com/m=itemdb_rs/api/catalogue/items.json?`,
     item: `http://services.runescape.com/m=itemdb_rs/api/catalogue/detail.json?item=`,
-    itemGraph: `http://services.runescape.com/m=itemdb_rs/api/graph/`,
+    itemGraph: `http://services.runescape.com/m=itemdb_rs/api/graph`,
   },
   categories: [
     "Miscellaneous",

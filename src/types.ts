@@ -228,8 +228,34 @@ export namespace Jagex {
     }
     // export type Category = unknown
     // export type CategoryPrices = unknown
-    // export type Item = unknown
-    // export type ItemGraph = unknown
+    export type Item = {
+      icon: string
+      icon_large: string
+      id: number
+      type: Jagex.GrandExchange.Category
+      typeIcon: string
+      name: string
+      description: string
+      current: ItemTrend
+      today: ItemTrend
+      members: string
+      day30: ItemTrend
+      day90: ItemTrend
+      day180: ItemTrend
+    }
+
+    type ItemTrend = {
+      trend: string
+      price: string
+    }
+    export type ItemGraph = {
+      daily: {
+        [key: string]: number
+      }
+      average: {
+        [key: string]: number
+      }
+    }
   }
   export namespace Hiscores {
     type Activities = typeof hiscores.activities[number]
@@ -313,6 +339,8 @@ export namespace Jagex {
 }
 
 export namespace RuneScape {
+  export namespace GrandExchange {}
+
   export namespace Hiscores {
     export type Skill = typeof hiscores.skills[number]
   }
