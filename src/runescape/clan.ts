@@ -1,18 +1,28 @@
 import got from "got"
-import { runescape as RSConfigs } from "../configs"
-import { parseJagexClanToJSON } from "../utils/Jagex"
+import { clan } from "../configs/runescape"
+import { ClanMember } from "../lib/RuneScape"
+import { Jagex } from "../types"
+import { parseJagexClanToArray } from "../utils/Jagex"
 
-export const members = async (name: string) => {
+export const getMembers = async (search: string) => {
+  if (typeof search !== "string") {
+    throw new TypeError("Search parameter must be a string")
+  }
+
   try {
-    const response = await got(RSConfigs.hiscores.endpoints.clan, {
+    const members = await got<Jagex.Clan.Members>(clan.endpoints.members, {
       searchParams: {
-        clanName: encodeURI(name),
+        clanName: search,
       },
     })
 
-    return parseJagexClanToJSON(response.body)
+    const membersArray = parseJagexClanToArray(members.body)
+
+    // return membersArray
+    return membersArray.map(
+      (member: Jagex.Clan.Member) => new ClanMember(member)
+    )
   } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+    throw new Error(error)
   }
 }

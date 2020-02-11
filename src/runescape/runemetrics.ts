@@ -1,49 +1,79 @@
 import got from "got"
-import { runescape as RSConfigs } from "../configs"
+import { runemetrics } from "../configs/runescape"
+import {
+  Quest,
+  RuneMetricsMonthlyExperience,
+  RuneMetricsProfile,
+  Skill,
+} from "../lib/RuneScape"
+import { Jagex } from "../types"
 
-export const profile = async (name: string) => {
-  try {
-    const response = await got(RSConfigs.runemetrics.endpoints.profile, {
-      searchParams: {
-        activities: 20,
-        user: encodeURI(name),
-      },
-    }).json()
-
-    return response
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+// TODO: Accept Skill class instance
+// TODO: Fail spectacularly if their profile is "unavailable" (may just mean they're private)
+export const getMonthlyXp = async (name: string, skill: number | Skill) => {
+  if (typeof name !== "string") {
+    throw new TypeError("Player name parameter must be a string")
   }
-}
 
-export const monthlyXp = async (name: string, skillId: number) => {
+  if (typeof skill !== "number" && skill.constructor.name !== "Skill") {
+    throw new TypeError("Skill parameter must be a number or Skill instance")
+  }
+
+  let skillId: number | undefined = undefined
+
+  if (typeof skill === "number") {
+    skillId = skill
+  } else {
+    skillId = skill.id
+  }
+
   try {
-    const response = await got(RSConfigs.runemetrics.endpoints.monthlyXp, {
+    const response = await got(runemetrics.endpoints.monthlyXp, {
       searchParams: {
-        searchName: encodeURI(name),
+        searchName: name,
         skillid: skillId,
       },
-    }).json()
+    }).json<Jagex.RuneMetrics.MonthlyExperience>()
 
-    return response
+    return new RuneMetricsMonthlyExperience(response.monthlyXpGain[0])
   } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+    throw new Error(error)
   }
 }
 
-export const quests = async (name: string) => {
-  try {
-    const response = await got(RSConfigs.runemetrics.endpoints.quests, {
-      searchParams: {
-        user: encodeURI(name),
-      },
-    }).json()
+export const getProfile = async (name: string) => {
+  if (typeof name !== "string") {
+    throw new TypeError("Player name parameter must be a string")
+  }
 
-    return response
+  try {
+    const profile = await got(runemetrics.endpoints.profile, {
+      searchParams: {
+        activities: 20,
+        user: name,
+      },
+    }).json<Jagex.RuneMetrics.Profile>()
+
+    return new RuneMetricsProfile(profile)
   } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+    throw new Error(error)
+  }
+}
+
+export const getQuests = async (name: string) => {
+  if (typeof name !== "string") {
+    throw new TypeError("Player name parameter must be a string")
+  }
+
+  try {
+    const response = await got(runemetrics.endpoints.quests, {
+      searchParams: {
+        user: name,
+      },
+    }).json<Jagex.RuneMetrics.Quests>()
+
+    return response.quests.map(quest => new Quest(quest))
+  } catch (error) {
+    throw new Error(error)
   }
 }

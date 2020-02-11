@@ -1,45 +1,42 @@
 import got from "got"
-import { runescape as RSConfigs } from "../configs"
-import { Player } from "../utils/Player"
+import { hiscores } from "../configs/runescape"
+import { Player } from "../lib/RuneScape"
+import { parseJagexPlayerToJSON } from "../utils/Jagex"
 
-type Gamemode = "normal" | "ironman" | "hardcore"
-
-export const avatar = async (name: string) => {
-  try {
-    const response = await got.get(
-      `https://secure.runescape.com/m=avatar-rs/g=runescape/${encodeURI(
-        name
-      )}/chat.png`
-    )
-
-    return response.url
-  } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
-  }
+type GetPlayerOptions = {
+  gamemode: typeof hiscores.gamemodes[number]
 }
 
-export const player = async (name: string, gamemode: Gamemode = "normal") => {
+// TODO: Handle 404 (player does not exist) response
+export const getPlayer = async (
+  name: string,
+  args: GetPlayerOptions = {
+    gamemode: "normal",
+  }
+) => {
   if (typeof name !== "string") {
-    return new Error("Username must be a string")
+    throw new TypeError("Player name parameter must be a string")
   }
 
-  if (!["normal", "ironman", "hardcore"].includes(gamemode)) {
-    return new Error(
-      "Invalid Gamemode, expected to see 'normal', 'ironman' or 'hardcore'"
+  if (![...hiscores.gamemodes].includes(args.gamemode)) {
+    throw new Error(
+      `Invalid gamemode selected. Available options are: ${hiscores.gamemodes.join(
+        " | "
+      )}`
     )
   }
 
   try {
-    const response = await got(RSConfigs.hiscores.endpoints[gamemode], {
+    const response = await got(hiscores.endpoints[args.gamemode], {
       searchParams: {
-        player: encodeURI(name),
+        player: name,
       },
     })
 
-    return new Player(name, response.body)
+    const player = parseJagexPlayerToJSON(response.body)
+
+    return new Player(name, player)
   } catch (error) {
-    console.log(error.response.body)
-    //=> 'Internal server error ...'
+    throw new Error(error)
   }
 }

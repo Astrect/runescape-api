@@ -11,10 +11,10 @@
   "types": "./index.d.ts",
   "scripts": {
     "build": "rimraf build && tsc",
-    "commit": "npx git-cz",
+    "commit": "npx git-cz@4.2.0",
     "cz": "npm run commit",
     "dev": "rimraf build && tsc --watch",
-    "format": "prettier ./{src,__{tests,mocks}__}/**/**/*.{js,jsx,ts,tsx} --write",
+    "format": "prettier ./{src,__{tests,mocks}__}/{**,**/**}/*.{js,jsx,ts,tsx} --write",
     "lint": "eslint src --ext=\".js,.jsx,.ts,.tsx\"",
     "test": "jest"
   },

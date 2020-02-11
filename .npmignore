@@ -1,6 +1,9 @@
 # GitHub Configuration Files
 .github
 
+# Testing Files
+__tests__
+
 # Dependancies
 node_modules
 

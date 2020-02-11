@@ -18,8 +18,22 @@
       1 = warn
       2 = error
     */
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@typescript-eslint/no-empty-function": 1
-  }
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-use-before-define": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "./src/configs.ts",
+        "./src/utils/Jagex.ts",
+        "./src/lib/RuneScape.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/camelcase": "off"
+      }
+    }
+  ]
 }
