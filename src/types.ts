@@ -239,14 +239,18 @@ export namespace Jagex {
       typeIcon: string
       name: string
       description: string
-      current: { trend: string; price: string }
-      today: { trend: string; price: string }
+      current: ItemTrend
+      today: ItemTrend
       members: string
-      day30?: { trend: string; price: string }
-      day90?: { trend: string; price: string }
-      day180?: { trend: string; price: string }
+      day30?: ItemTrend
+      day90?: ItemTrend
+      day180?: ItemTrend
     }
 
+    type ItemTrend = {
+      trend: string
+      price: string
+    }
     export type ItemGraph = {
       daily: {
         [key: string]: number

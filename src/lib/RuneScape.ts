@@ -135,9 +135,9 @@ export class Item {
   trends: {
     current: { trend: string; price: string }
     today: { trend: string; price: string }
-    day30: { trend: string; price: string }
-    day90: { trend: string; price: string }
-    day180: { trend: string; price: string }
+    day30?: { trend: string; price: string }
+    day90?: { trend: string; price: string }
+    day180?: { trend: string; price: string }
   }
 
   constructor(item: Jagex.GrandExchange.Item) {
@@ -154,9 +154,9 @@ export class Item {
     this.trends = {
       current: item.current,
       today: item.today,
-      day30: item.day30!,
-      day90: item.day90!,
-      day180: item.day180!,
+      day30: item.day30,
+      day90: item.day90,
+      day180: item.day180,
     }
   }
 }
