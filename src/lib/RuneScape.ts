@@ -154,9 +154,9 @@ export class Item {
     this.trends = {
       current: item.current,
       today: item.today,
-      day30: item.day30,
-      day90: item.day90,
-      day180: item.day180,
+      day30: item.day30!,
+      day90: item.day90!,
+      day180: item.day180!,
     }
   }
 }
