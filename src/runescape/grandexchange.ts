@@ -1,9 +1,8 @@
 import got from "got"
 import { grandexchange } from "../configs/runescape"
-import { Jagex, Letter } from "../types"
 import { GrandExchangeCategory, Item, ItemGraph } from "../lib/RuneScape"
+import { AlphaNumeric, Jagex } from "../types"
 
-// TODO: Clean up these function names and improve the returned data (getCategories, getCategoryItemsCount, getCategoryItems)
 export const getCategories = async () => {
   return await new Promise<GrandExchangeCategory[]>(resolve =>
     resolve(
@@ -14,12 +13,7 @@ export const getCategories = async () => {
   )
 }
 
-/**
- * The number of items separated by the first letter
- *
- * @param category
- */
-export const getCategoryItemsCount = async (
+export const getCategoryCounts = async (
   category: number | GrandExchangeCategory
 ) => {
   if (
@@ -52,39 +46,45 @@ export const getCategoryItemsCount = async (
   }
 }
 
-// TODO: Any items that start with a number must instead use %23 instead of #
-export const getCategoryItems = async (
-  category: number | GrandExchangeCategory,
-  prefix: Letter,
+export const getCategoryCountsByPrefix = async (
+  categoryId: number | GrandExchangeCategory,
+  prefix: AlphaNumeric,
   page = 1
 ) => {
   if (
-    typeof category !== "number" &&
-    category.constructor.name !== "GrandExchangeCategory"
+    typeof categoryId !== "number" &&
+    categoryId.constructor.name !== "GrandExchangeCategory"
   ) {
     throw new TypeError(
       "Category parameter must be a number or GrandExchangeCategory instance"
     )
   }
 
-  let categoryId: number | undefined = undefined
+  let category: number | undefined = undefined
+  let alpha: string | undefined = undefined
 
-  if (typeof category === "number") {
-    categoryId = category
+  if (typeof categoryId === "number") {
+    category = categoryId
   } else {
-    categoryId = category.id
+    category = categoryId.id
+  }
+
+  if (typeof prefix === "number") {
+    alpha = encodeURIComponent("#")
+  } else {
+    alpha = prefix.toLowerCase()
   }
 
   try {
     const response = await got(grandexchange.endpoints.categoryItems, {
       searchParams: {
-        category: categoryId,
-        alpha: prefix.toLowerCase(),
+        category,
+        alpha,
         page,
       },
     }).json<Jagex.GrandExchange.CategoryItems>()
 
-    return response
+    return response.items
   } catch (error) {
     throw new Error(error)
   }

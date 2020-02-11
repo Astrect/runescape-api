@@ -1,5 +1,5 @@
+import { Item, ItemGraph } from "../../lib/RuneScape"
 import { grandexchange } from "../../runescape"
-import { GrandExchangeCategory } from "../../lib/RuneScape"
 
 test("Fetch all grand exchange categories", async () => {
   return grandexchange.getCategories().then(data => {
@@ -7,14 +7,16 @@ test("Fetch all grand exchange categories", async () => {
   })
 })
 
-// test("GE", async () => {
-//   const category = new GrandExchangeCategory("Prayer armour")
+test("Fetch item details", async () => {
+  return grandexchange.getItem(4151).then(data => {
+    expect(data).toBeDefined()
+    expect(data).toBeInstanceOf(Item)
+  })
+})
 
-//   return grandexchange.getCategoryItems(category, "A").then(data => {
-//     expect(data).toBeDefined()
-
-//     data.forEach(item => {
-//       expect(item).toBeInstanceOf()
-//     });
-//   })
-// })
+test("Fetch item price history graph details", async () => {
+  return grandexchange.getItemGraph(4151).then(data => {
+    expect(data).toBeDefined()
+    expect(data).toBeInstanceOf(ItemGraph)
+  })
+})

@@ -385,6 +385,7 @@ export namespace RuneScape {
 }
 
 // TODO: Extract this to it's own package @pqt/types
+export type AlphaNumeric = LowercaseLetter | UppercaseLetter | SingleNumeric
 export type Letter = LowercaseLetter | UppercaseLetter
 export type LowercaseLetter =
   | "a"
@@ -441,3 +442,5 @@ export type UppercaseLetter =
   | "X"
   | "Y"
   | "Z"
+
+export type SingleNumeric = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9

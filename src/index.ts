@@ -41,8 +41,8 @@ const demo = async () => {
   // const data = await clan.getMembers("Royal 58")
   // Grand Exchange
   // const data = await grandexchange.getCategories()
-  // const data = await grandexchange.getCategoryItemsCount(24)
-  // const data = await grandexchange.getCategoryItems(24, "b")
+  // const data = await grandexchange.getCategoryCounts(24)
+  const data = await grandexchange.getCategoryCountsByPrefix(24, "b")
   // const data = await grandexchange.getItem(4151)
   // const data = await grandexchange.getItemGraph(4151)
   // Hiscores
@@ -54,10 +54,7 @@ const demo = async () => {
   // const data = await miscellaneous.getTotalUsers()
   // RuneMetrics
   // const data = await runemetrics.getProfile("Paqt")
-  const data = await runemetrics.getMonthlyXp(
-    "Conundrum129",
-    new Skill("woodcutting")
-  )
+  // const data = await runemetrics.getMonthlyXp("Conundrum129", new Skill("woodcutting"))
   // const data = await runemetrics.getQuests("Paqt")
   // LOG IT!
   console.log(data)
