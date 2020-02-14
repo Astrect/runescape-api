@@ -1,4 +1,4 @@
-// import * as oldschool from "./osrs"
+import * as osrs from "./osrs"
 import * as bestiary from "./runescape/bestiary"
 import * as clan from "./runescape/clan"
 import * as grandexchange from "./runescape/grandexchange"
@@ -14,5 +14,5 @@ export default {
   hiscores,
   miscellaneous,
   runemetrics,
-  // oldschool,
+  osrs,
 }

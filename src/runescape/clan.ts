@@ -18,7 +18,6 @@ export const getMembers = async (search: string) => {
 
     const membersArray = parseJagexClanToArray(members.body)
 
-    // return membersArray
     return membersArray.map(
       (member: Jagex.Clan.Member) => new ClanMember(member)
     )

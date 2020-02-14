@@ -20,7 +20,7 @@
   </a>
 </p>
 
-## Installation
+# Installation
 
 ```bash
 npm install runescape-api
@@ -28,4 +28,6 @@ npm install runescape-api
 yarn add runescape-api
 ```
 
-## Usage
+# Documentation
+
+Checkout the [Gitbook Documentation](https://pqt.gitbook.io/runescape-api/) for more details about each of the available methods.

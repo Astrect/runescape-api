@@ -8,7 +8,6 @@ import {
 } from "../lib/RuneScape"
 import { Jagex } from "../types"
 
-// TODO: Accept Skill class instance
 // TODO: Fail spectacularly if their profile is "unavailable" (may just mean they're private)
 export const getMonthlyXp = async (name: string, skill: number | Skill) => {
   if (typeof name !== "string") {
