@@ -4,5 +4,12 @@
 
 ## Documentation <a id="docs"></a>
 
-* [Introduction](docs/introduction.md)
+* [Bestiary](docs/introduction.md)
+* [Clan](docs/clan.md)
+* [Grand Exchange](docs/grandexchange.md)
+* [Hiscores](docs/hiscores.md)
+* [RuneMetrics](docs/runemetrics.md)
+* [Oldschool](docs/osrs/README.md)
+  * [OSRS Grand Exchange](docs/osrs/grandexchange.md)
+  * [OSRS Hiscores](docs/osrs/hiscores.md)
 
