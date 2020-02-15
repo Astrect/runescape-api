@@ -4,6 +4,7 @@ import {
   hiscores,
   runemetrics,
 } from "./configs/runescape"
+import * as osrs from "./configs/oldschool"
 
 export namespace Jagex {
   export namespace Bestiary {
@@ -220,7 +221,6 @@ export namespace Jagex {
     export type Members = string
   }
   export namespace GrandExchange {
-    //  type Categories = typeof grandexchange.categories
     export type Category = typeof grandexchange.categories[number]
     export type CategoryItemsCount = {
       types: never[]
@@ -230,7 +230,6 @@ export namespace Jagex {
       total: number
       items: Item[]
     }
-    // export type CategoryPrices = unknown
     export type Item = {
       icon: string
       icon_large: string
@@ -261,6 +260,7 @@ export namespace Jagex {
     }
   }
   export namespace Hiscores {
+    // RuneScape 3
     type Activities = typeof hiscores.activities[number]
     type Activity = {
       rank: number
@@ -283,6 +283,40 @@ export namespace Jagex {
       experience: number
     }
     export type Gamemode = typeof hiscores.gamemodes[number]
+
+    // Oldschool RuneScape
+    type OSRSActivities = typeof osrs.hiscores.activities[number]
+    type OSRSActivity = {
+      rank: number
+      count: number
+    }
+    type OSRSBosses = typeof osrs.hiscores.bosses[number]
+    type OSRSBoss = {
+      rank: number
+      count: number
+    }
+    export type OSRSPlayer = string
+    export type OSRSPlayerJSON = {
+      activities: OSRSPlayerActivites
+      bosses: OSRSPlayerBosses
+      skills: OSRSPlayerSkills
+    }
+    export type OSRSPlayerActivites<K extends string = OSRSActivities> = {
+      [key in K]: OSRSActivity
+    }
+    export type OSRSPlayerBosses<K extends string = OSRSBosses> = {
+      [key in K]: OSRSBoss
+    }
+    export type OSRSPlayerSkills<K extends string = OSRSSkills> = {
+      [key in K]: OSRSSkill
+    }
+    type OSRSSkills = typeof osrs.hiscores.skills[number]
+    type OSRSSkill = {
+      rank: number
+      level: number
+      experience: number
+    }
+    export type OSRSGamemode = typeof osrs.hiscores.gamemodes[number]
   }
   export namespace Miscellaneous {
     export type TotalUsers = { accounts: number; accountsformatted: string }

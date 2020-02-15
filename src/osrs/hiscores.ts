@@ -1,7 +1,7 @@
 import got from "got"
-import { hiscores } from "../configs/runescape"
-import { Player } from "../lib/RuneScape"
-import { parseJagexPlayerToJSON } from "../utils/Jagex"
+import { hiscores } from "../configs/oldschool"
+import { Player } from "../lib/Oldschool"
+import { parseJagexOSRSPlayerToJSON } from "../utils/Jagex"
 
 // type GetPlayerOptions = {
 //   gamemode: typeof hiscores.gamemodes[number]
@@ -31,7 +31,7 @@ export const getPlayer = async (
       },
     })
 
-    const player = parseJagexPlayerToJSON(response.body)
+    const player = parseJagexOSRSPlayerToJSON(response.body)
 
     return new Player(name, player)
   } catch (error) {

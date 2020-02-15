@@ -14,12 +14,12 @@ test("Fetch player's RuneMetrics profile", async () => {
 })
 
 test("Fetch player's RuneMetrics monthly skill XP gain", async () => {
-  const skill = new Skill("woodcutting")
-
-  return runemetrics.getMonthlyXp("Conundrum129", skill).then(data => {
-    expect(data).toBeDefined()
-    expect(data).toBeInstanceOf(RuneMetricsMonthlyExperience)
-  })
+  return runemetrics
+    .getMonthlyXp("Conundrum129", new Skill("woodcutting"))
+    .then(data => {
+      expect(data).toBeDefined()
+      expect(data).toBeInstanceOf(RuneMetricsMonthlyExperience)
+    })
 })
 
 test("Fetch player's RuneMetrics monthly skill XP gain", async () => {
