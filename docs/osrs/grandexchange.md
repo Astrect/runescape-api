@@ -13,7 +13,9 @@ import { grandexchange } from "runescape-api/osrs"
 > Retrieve an item
 
 ```javascript
-
+grandexchange.getItem(4151).then(data => {
+    console.log(data)
+})
 ```
 
 ### getItemGraph\(:id\) <a id="getitemgraph-id"></a>
@@ -21,6 +23,8 @@ import { grandexchange } from "runescape-api/osrs"
 > Retrieve an item's price history graph data
 
 ```javascript
-
+grandexchange.getItemGraph(4151).then(data => {
+    console.log(data)
+})
 ```
 

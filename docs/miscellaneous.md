@@ -13,7 +13,9 @@ import { miscellaneous } from "runescape-api"
 > Retrieve a player's avatar URL
 
 ```javascript
-
+miscellaneous.getAvatar("Conundrum129").then(data => {
+    console.log(data)
+})
 ```
 
 ### getTotalUsers\(\) <a id="gettotalusers"></a>
@@ -21,7 +23,9 @@ import { miscellaneous } from "runescape-api"
 > Retrieve the total registered RuneScape accounts
 
 ```javascript
-
+miscellaneous.getTotalUsers().then(data => {
+    console.log(data)
+})
 ```
 
 

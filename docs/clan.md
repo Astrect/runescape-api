@@ -13,6 +13,8 @@ import { clan } from "runescape-api"
 > List all clan members
 
 ```javascript
-
+clan.getMembers("Royal 58").then(data => {
+    console.log(data)
+})
 ```
 

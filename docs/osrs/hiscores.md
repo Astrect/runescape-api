@@ -13,6 +13,8 @@ import { hiscores } from "runescape-api/osrs"
 > Retrieve a player
 
 ```javascript
-
+hiscores.getPlayer("Zezima").then(data => {
+    console.log(data)
+})
 ```
 

@@ -13,7 +13,9 @@ import { hiscores } from "runescape-api"
 > Retrieve a player
 
 ```javascript
-
+hiscores.getPlayer("Paqt").then(data => {
+    console.log(data)
+})
 ```
 
 
