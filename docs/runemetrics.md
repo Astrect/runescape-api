@@ -3,7 +3,7 @@
 ## Usage
 
 ```javascript
-
+import { runemetrics } from "runescape-api"
 ```
 
 ## Functions

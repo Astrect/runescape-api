@@ -3,7 +3,7 @@
 ## Usage
 
 ```javascript
-
+import { grandexchange } from "runescape-api"
 ```
 
 ## Functions

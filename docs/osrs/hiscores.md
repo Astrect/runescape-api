@@ -3,7 +3,7 @@
 ## Usage
 
 ```javascript
-
+import { hiscores } from "runescape-api/osrs"
 ```
 
 ## Functions

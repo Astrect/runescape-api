@@ -3,7 +3,7 @@
 ## Usage
 
 ```javascript
-
+import { clan } from "runescape-api"
 ```
 
 ## Functions

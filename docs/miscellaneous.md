@@ -3,7 +3,7 @@
 ## Usage
 
 ```javascript
-
+import { miscellaneous } from "runescape-api"
 ```
 
 ## Functions
