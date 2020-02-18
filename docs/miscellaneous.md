@@ -10,7 +10,15 @@ import { miscellaneous } from "runescape-api"
 
 ### getAvatar\(:playerName\) <a id="getavatar-playername"></a>
 
+```javascript
+
+```
+
 ### getTotalUsers\(\) <a id="gettotalusers"></a>
+
+```javascript
+
+```
 
 
 

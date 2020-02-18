@@ -10,3 +10,7 @@ import { clan } from "runescape-api"
 
 ### getMembers\(:clanName\) <a id="getmembers-clanname"></a>
 
+```javascript
+
+```
+
