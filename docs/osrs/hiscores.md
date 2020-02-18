@@ -10,6 +10,8 @@ import { hiscores } from "runescape-api/osrs"
 
 ### getPlayer\(:playerName, :gamemode?\) <a id="getplayer"></a>
 
+> Retrieve a player
+
 ```javascript
 
 ```
