@@ -2,7 +2,7 @@ export const hiscores = {
   endpoints: {
     normal: `http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=`,
     ironman: `http://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws?player=`,
-    hardcore: `http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player=`,
+    hardcore: `http://services.runescape.com/m=hiscore_oldschool_hardcore_ironman/index_lite.ws?player=`,
     ultimate: `http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player=`,
     deadman: `http://services.runescape.com/m=hiscore_oldschool_deadman/index_lite.ws?player=`,
     seasonal: `http://services.runescape.com/m=hiscore_oldschool_seasonal/index_lite.ws?player=`,
