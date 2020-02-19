@@ -14,21 +14,17 @@ yarn add runescape-api
 
 ## Usage
 
-The implementation offers functionality to interact with the following
+The implementation offers functionality to interact with the following:
 
-{% page-ref page="docs/introduction.md" %}
+* [Bestiary](https://pqt.gitbook.io/runescape-api/docs/bestiary)
+* [Clan](https://pqt.gitbook.io/runescape-api/docs/clan)
+* [Grand Exchange](https://pqt.gitbook.io/runescape-api/docs/grandexchange)
+* [Hiscores](https://pqt.gitbook.io/runescape-api/docs/hiscores)
+* [Miscellaneous](https://pqt.gitbook.io/runescape-api/docs/miscellaneous)
+* [RuneMetrics](https://pqt.gitbook.io/runescape-api/docs/runemetrics)
+* [Oldschool](https://pqt.gitbook.io/runescape-api/docs/osrs)
+  * [Grand Exchange](https://pqt.gitbook.io/runescape-api/docs/osrs/grandexchange)
+  * [Hiscores](https://pqt.gitbook.io/runescape-api/docs/osrs/hiscores)
 
-{% page-ref page="docs/clan.md" %}
-
-{% page-ref page="docs/grandexchange.md" %}
-
-{% page-ref page="docs/hiscores.md" %}
-
-{% page-ref page="docs/miscellaneous.md" %}
-
-{% page-ref page="docs/runemetrics.md" %}
-
-{% page-ref page="docs/osrs/" %}
-
-More, detailed examples can be provided on the respective documentation pages.
+More, detailed examples can be provided on the respective documentation pages, a complete summary of the documentation pages can be found on the [GitHub Repository](https://github.com/pqt/runescape-api/blob/master/SUMMARY.md).
 
