@@ -30,5 +30,5 @@ The implementation offers functionality to interact with the following
 
 {% page-ref page="docs/osrs/" %}
 
-
+More, detailed examples can be provided on the respective documentation pages.
 
