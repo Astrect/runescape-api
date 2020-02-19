@@ -15,7 +15,6 @@ export const getItem = async (id: number) => {
       },
     }).json<{ item: Jagex.GrandExchange.Item }>()
 
-    return response.item
     return new Item(response.item)
   } catch (error) {
     throw new Error(error)
