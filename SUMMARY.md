@@ -4,7 +4,7 @@
 
 ## Documentation <a id="docs"></a>
 
-* [Bestiary](docs/introduction.md)
+* [Bestiary](docs/bestiary.md)
 * [Clan](docs/clan.md)
 * [Grand Exchange](docs/grandexchange.md)
 * [Hiscores](docs/hiscores.md)
