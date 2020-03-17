@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+# generate the build directory
+npm run build
+
+# move files from the build directory to project root
+mv ./build/* ./

@@ -1,5 +1,31 @@
-test
-examples
-docs
-.jshintrc
-.travis.yml
+# GitHub Configuration Files
+.github
+
+# Testing Files
+__tests__
+
+# Dependancies
+node_modules
+
+# Executables
+scripts
+
+# Source Files
+src
+
+# Log Files
+*.log
+
+# Lock Files
+*.lock
+package-lock.json
+
+# Dotfiles
+.*
+
+# Configurations
+tsconfig.json
+tsconfig.tsbuildinfo
+
+# Results of `npm pack`
+*.tgz
