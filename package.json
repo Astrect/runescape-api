@@ -1,6 +1,6 @@
 {
   "name": "runescape-api",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Simple wrapper for RuneScape APIs written in node.",
   "author": "Joshua Filby <joshua@filby.me>",
   "maintainers": [
