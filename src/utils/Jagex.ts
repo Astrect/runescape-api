@@ -34,6 +34,7 @@ const defaultSkillTree: Jagex.Hiscores.PlayerSkills = {
   dungeoneering: { rank: 0, level: 1, experience: 0 },
   divination: { rank: 0, level: 1, experience: 0 },
   invention: { rank: 0, level: 1, experience: 0 },
+  archaeology: { rank: 0, level: 1, experience: 0 },
 }
 const separateIntoLines = (jagexPlayer: string): string[] => {
   return jagexPlayer.split("\n")
