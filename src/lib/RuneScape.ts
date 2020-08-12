@@ -128,6 +128,7 @@ export class GrandExchangeCategory {
 
 export class Item {
   id: number
+  name: string
   examine: string
   category: GrandExchangeCategory
   members: boolean
@@ -142,6 +143,7 @@ export class Item {
 
   constructor(item: Jagex.GrandExchange.Item) {
     this.id = item.id
+    this.name = item.name
     this.examine = item.description
     this.category = new GrandExchangeCategory(item.type)
     this.members = item.members === "true" ? true : false
