@@ -1,30 +1,117 @@
-# Introduction
+# RuneScape API SDK
 
-[![Current Github Action build status.](https://github.com/pqt/runescape-api/workflows/status/badge.svg?color=005cc5)](https://github.com/pqt/runescape-api/actions?workflow=status) [![Package dependancy status.](https://img.shields.io/librariesio/release/npm/runescape-api)](https://www.npmjs.org/package/runescape-api) [![Total downloads.](https://img.shields.io/npm/dt/runescape-api?color=005cc5)](https://www.npmjs.org/package/runescape-api) [![npm package version.](https://img.shields.io/npm/v/runescape-api.svg?color=005cc5)](https://www.npmjs.org/package/runescape-api) [![Released under the MIT license.](https://img.shields.io/badge/license-MIT-blue.svg?color=005cc5)](https://github.com/pqt/runescape-api/blob/master/LICENSE)
+`runescape-api` is a Node.js library for the unofficial API endpoints of the popular MMORPG game RuneScape and Oldschool RuneScape.
 
-`runescape-api` is an open-source wrapper, written in [Node.js](https://nodejs.org), that allows interaction with the various APIs available for the popular MMORPG [RuneScape](http://www.runescape.com).
+> Requests are made using the [Got](https://github.com/sindresorhus/got) library and will not work in a browser. This is a known limitation. The APIs Jagex expose do not allow Cross-Origin Resource Sharing (CORS) so browsers have their requests blocked, backend processes such an Node APIs do not experience these restrictions. You'd need to use a server-side request even if this package supported browser requests.
 
-### Installation
+## Installation
 
-```bash
+```
 npm install runescape-api
 # OR
 yarn add runescape-api
 ```
 
-### Usage
+## RuneScape Usage
 
-The implementation offers functionality to interact with the following:
+### Bestiary
 
-* [Bestiary](https://pqt.gitbook.io/runescape-api/docs/bestiary)
-* [Clan](https://pqt.gitbook.io/runescape-api/docs/clan)
-* [Grand Exchange](https://pqt.gitbook.io/runescape-api/docs/grandexchange)
-* [Hiscores](https://pqt.gitbook.io/runescape-api/docs/hiscores)
-* [Miscellaneous](https://pqt.gitbook.io/runescape-api/docs/miscellaneous)
-* [RuneMetrics](https://pqt.gitbook.io/runescape-api/docs/runemetrics)
-* [Oldschool](https://pqt.gitbook.io/runescape-api/docs/osrs)
-  * [Grand Exchange](https://pqt.gitbook.io/runescape-api/docs/osrs/grandexchange)
-  * [Hiscores](https://pqt.gitbook.io/runescape-api/docs/osrs/hiscores)
+```js
+import { bestiary } from 'runescape-api';
+```
 
-More, detailed examples can be provided on the respective documentation pages, a complete summary of the documentation pages can be found on the [GitHub Repository](https://github.com/pqt/runescape-api/blob/master/SUMMARY.md).
+#### getAreas()
 
+List all bestiary areas
+
+```js
+bestiary.getAreas().then((data) => {
+  console.log(data);
+});
+```
+
+#### getBeast(:id)
+
+Retrieve a beast
+
+| Parameter | Type     |
+| --------- | -------- |
+| `id`      | `number` |
+
+```js
+bestiary.getBeast(16705).then((data) => {
+  console.log(data);
+});
+```
+
+#### getBeastsByArea(:area)
+
+List all beasts within a given area
+
+#### getBeastsByTerms(:term)
+
+List all beasts by a given term
+
+#### getBeastsByFirstLetter(:letter)
+
+List all beasts starting with a given letter
+
+#### getBeastsBySlayerCategory(:categoryId)\*\*
+
+st all beasts within a given slayer category
+
+#### getBeastsByWeakness(:weaknessId)
+
+List all beasts with a given weakness
+
+#### getSlayerCategories()
+
+List all slayer categories
+
+#### getWeaknesses()
+
+List all weaknesses
+
+### Clan
+
+```js
+import { clan } from 'runescape-api';
+```
+
+### Grand Exchange
+
+```js
+import { grandexchange } from 'runescape-api';
+```
+
+### Hiscores
+
+```js
+import { hiscores } from 'runescape-api';
+```
+
+### Miscellaneous
+
+```js
+import { miscellaneous } from 'runescape-api';
+```
+
+### RuneMetrics
+
+```js
+import { runemetrics } from 'runescape-api';
+```
+
+## Oldschool Usage
+
+### Grand Exchange
+
+```js
+import { grandexchange } from 'runescape-api/osrs';
+```
+
+### Hiscores
+
+```js
+import { hiscores } from 'runescape-api/osrs';
+```
