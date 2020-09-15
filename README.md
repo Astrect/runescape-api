@@ -32,25 +32,21 @@ bestiary.getAreas().then(data => {
 
 #### getBeast(:id)
 
-Retrieve a beast
-
-| Parameter | Type     |
-| --------- | -------- |
-| `id`      | `number` |
-
 ```js
 bestiary.getBeast(16705).then(data => {
   console.log(data)
 })
 ```
 
+Retrieve a beast
+
+| Parameter | Type     |
+| --------- | -------- |
+| `id`      | `number` |
+
 #### getBeastsByArea(:area)
 
 List all beasts within a given area
-
-| Parameter | Type            |
-| --------- | --------------- |
-| `area`    | `string | Area` |
 
 ```js
 bestiary.getBeastsByArea("Glarial's tomb").then(data => {
@@ -58,13 +54,13 @@ bestiary.getBeastsByArea("Glarial's tomb").then(data => {
 })
 ```
 
+| Parameter | Type            |
+| --------- | --------------- |
+| `area`    | `string | Area` |
+
 #### getBeastsByTerms(:term)
 
 List all beasts by a given term
-
-| Parameter | Type     |
-| --------- | -------- |
-| `term`    | `string` |
 
 ```js
 bestiary.getBeastsByTerms("cow").then(data => {
@@ -72,13 +68,13 @@ bestiary.getBeastsByTerms("cow").then(data => {
 })
 ```
 
+| Parameter | Type     |
+| --------- | -------- |
+| `term`    | `string` |
+
 #### getBeastsByFirstLetter(:letter)
 
 List all beasts starting with a given letter
-
-| Parameter | Type     |
-| --------- | -------- |
-| `letter`  | `string` |
 
 ```js
 bestiary.getBeastsByFirstLetter("c").then(data => {
@@ -86,13 +82,13 @@ bestiary.getBeastsByFirstLetter("c").then(data => {
 })
 ```
 
+| Parameter | Type     |
+| --------- | -------- |
+| `letter`  | `string` |
+
 #### getBeastsBySlayerCategory(:categoryId)
 
-st all beasts within a given slayer category
-
-| Parameter    | Type     |
-| ------------ | -------- |
-| `categoryId` | `number` |
+List all beasts within a given slayer category
 
 ```js
 bestiary.getBeastsBySlayerCategory(45).then(data => {
@@ -100,19 +96,23 @@ bestiary.getBeastsBySlayerCategory(45).then(data => {
 })
 ```
 
+| Parameter    | Type     |
+| ------------ | -------- |
+| `categoryId` | `number` |
+
 #### getBeastsByWeakness(:weaknessId)
 
 List all beasts with a given weakness
-
-| Parameter    | Type     |
-| ------------ | -------- |
-| `weaknessId` | `number` |
 
 ```js
 bestiary.getBeastsByWeakness(7).then(data => {
   console.log(data)
 })
 ```
+
+| Parameter    | Type     |
+| ------------ | -------- |
+| `weaknessId` | `number` |
 
 #### getSlayerCategories()
 
@@ -140,11 +140,93 @@ bestiary.getWeaknesses().then(data => {
 import { clan } from "runescape-api"
 ```
 
+#### getMembers(:clanName)
+
+List all clan members for a given clan
+
+```js
+clan.getMembers("Royal 58").then(data => {
+  console.log(data)
+})
+```
+
+| Parameter  | Type     |
+| ---------- | -------- |
+| `clanName` | `string` |
+
 ### Grand Exchange
 
 ```js
 import { grandexchange } from "runescape-api"
 ```
+
+#### getCategories()
+
+List all categories
+
+```js
+grandexchange.getCategories().then(data => {
+  console.log(data)
+})
+```
+
+#### getCategoryCounts(:categoryId)
+
+List the number of items in a category, grouped by starting character
+
+```js
+grandexchange.getCategoryCounts(24).then(data => {
+  console.log(data)
+})
+```
+
+| Parameter    | Type     |
+| ------------ | -------- |
+| `categoryId` | `number` |
+
+#### getCategoryCountsByPrefix(:categoryId, :prefix, :page?)
+
+List the number of items in a category, starting with a specific character
+
+```js
+grandexchange.getCategoryCountsByPrefix(24, "b").then(data => {
+  console.log(data)
+})
+```
+
+| Parameter         | Type     |
+| ----------------- | -------- |
+| `categoryId`      | `number` |
+| `prefix`          | `string` |
+| `page` (optional) | `number` |
+
+#### getItem(:itemId)
+
+Retrieve an item
+
+```js
+grandexchange.getItem(4151).then(data => {
+  console.log(data)
+})
+```
+
+| Parameter | Type     |
+| --------- | -------- |
+| `itemId`  | `number` |
+
+#### getItemGraph(:itemId)
+
+Retrieve an item's price history graph data
+
+```js
+grandexchange.getItemGraph(4151).then(data => {
+  console.log(data)
+})
+```
+
+| Parameter | Type     |
+| --------- | -------- |
+| `itemId`  | `number` |
 
 ### Hiscores
 
