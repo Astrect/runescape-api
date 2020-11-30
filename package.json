@@ -1,10 +1,10 @@
 {
   "name": "runescape-api",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Simple wrapper for RuneScape APIs written in node.",
   "author": "Joshua Filby <joshua@filby.me>",
   "maintainers": [
-    "Austin Paquette <austin@paquette.io> (https://pqt.dev)"
+    "Astrect <astrect@astrect.me> (https://astrect.me)"
   ],
   "keywords": [],
   "main": "./index.js",
@@ -37,10 +37,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pqt/runescape-api"
+    "url": "https://github.com/astrect/runescape-api"
   },
   "bugs": {
-    "url": "https://github.com/pqt/runescape-api/issues"
+    "url": "https://github.com/astrect/runescape-api/issues"
   },
   "husky": {
     "hooks": {

@@ -6,3 +6,4 @@ build
 
 # Mac OS Files
 .DS_STORE
+package-lock.json
