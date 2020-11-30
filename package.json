@@ -6,13 +6,7 @@
   "maintainers": [
     "Astrect <astrect@astrect.me> (https://astrect.me)"
   ],
-  "keywords": [
-    "Oldschool",
-    "Old School",
-    "Runescape",
-    "OSRS",
-    "2007scape",
-  ],
+  "keywords": [],
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
