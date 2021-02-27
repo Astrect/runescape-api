@@ -99,6 +99,10 @@ export const formatRuneMetricsProfileSkills = (
 ) => {
   const skills = { ...defaultSkillTree }
 
+  // We must offset ID's by one to properly map skills as
+  // RuneMetrics does not provide "overall" in ProfileSkills
+  skillsArray.forEach( (skill)  => { skill.id++ });
+
   hiscores.skills.map((skillName, index) => {
     const { rank, level, xp: experience } = skillsArray.find(
       skill => skill.id === index
