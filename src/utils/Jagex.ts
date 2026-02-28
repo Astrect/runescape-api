@@ -205,6 +205,7 @@ const formatOSRSActivities = (activitiesArray: string[]) => {
     clue_scrolls_master: { rank: 0, count: 0 },
     last_man_standing: { rank: 0, count: 0 },
     pvp_arena: { rank: 0, count: 0 },
+    soul_wars: { rank: 0, count: 0 },
   }
 
   osrs.hiscores.activities.map((activityName, index) => {
