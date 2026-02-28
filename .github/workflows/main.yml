@@ -1,31 +1,103 @@
-name: status
-on: push
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
 
 jobs:
-  npm:
-    name: Publish to NPM
+  release:
+    # Prevent infinite loop
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: "12.x"
+          fetch-depth: 0
 
-      - name: install
-        run: npm install
+      # ✅ Ensure merge came from development
+      - name: Ensure merge came from development
+        id: check_merge
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
 
-      - name: format
-        run: npm run format
+          echo "$COMMIT_MSG"
 
-      - name: lint
-        run: npm run lint
+          if echo "$COMMIT_MSG" | grep -q "development"; then
+            echo "merged=true" >> $GITHUB_OUTPUT
+          else
+            echo "merged=false" >> $GITHUB_OUTPUT
+          fi
 
-      - name: build
-        run: scripts/build_and_move
+      - name: Stop if not a development merge
+        if: steps.check_merge.outputs.merged != 'true'
+        run: |
+          echo "Not a development merge. Skipping."
+          exit 0
 
-      - name: publish (npm)
-        uses: primer/publish@v2.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          args: "--dry-run -- --unsafe-perm"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npm run format
+      - run: npm run lint
+      - run: npm run build
+
+      # ✅ Detect bump type from commit message
+      - name: Detect version bump type
+        id: bump_type
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+
+          if echo "$COMMIT_MSG" | grep -qi "^refactor:"; then
+            echo "type=major" >> $GITHUB_OUTPUT
+          elif echo "$COMMIT_MSG" | grep -qi "^feat:"; then
+            echo "type=minor" >> $GITHUB_OUTPUT
+          elif echo "$COMMIT_MSG" | grep -qi "^fix:"; then
+            echo "type=patch" >> $GITHUB_OUTPUT
+          else
+            echo "type=patch" >> $GITHUB_OUTPUT
+          fi
+
+      # ✅ Bump version
+      - name: Bump version
+        run: |
+          npm version ${{ steps.bump_type.outputs.type }} --no-git-tag-version
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add package.json
+          if [ -f package-lock.json ]; then
+            git add package-lock.json
+          fi
+
+          git commit -m "ci: bump ${{ steps.bump_type.outputs.type }} version [skip ci]"
+          git push
+
+      # ✅ Get new version
+      - name: Get final version
+        id: final_version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      # ✅ Create tag
+      - name: Create tag
+        run: |
+          git tag v${{ steps.final_version.outputs.version }}
+          git push origin v${{ steps.final_version.outputs.version }}
+
+      # ✅ Create GitHub Release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.final_version.outputs.version }}
+          name: Release v${{ steps.final_version.outputs.version }}

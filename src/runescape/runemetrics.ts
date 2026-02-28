@@ -35,8 +35,8 @@ export const getMonthlyXp = async (name: string, skill: number | Skill) => {
     }).json<Jagex.RuneMetrics.MonthlyExperience>()
 
     return new RuneMetricsMonthlyExperience(response.monthlyXpGain[0])
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -54,8 +54,8 @@ export const getProfile = async (name: string) => {
     }).json<Jagex.RuneMetrics.Profile>()
 
     return new RuneMetricsProfile(profile)
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -72,7 +72,7 @@ export const getQuests = async (name: string) => {
     }).json<Jagex.RuneMetrics.Quests>()
 
     return response.quests.map(quest => new Quest(quest))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }

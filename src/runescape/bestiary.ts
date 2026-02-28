@@ -16,8 +16,8 @@ export const getAreas = async () => {
     >()
 
     return areas.map(area => new Area(area))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -47,8 +47,8 @@ export const getBeast = async (search: number | BeastSearchResult) => {
     }).json<Jagex.Bestiary.Beast>()
 
     return new Beast(beast)
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -74,8 +74,8 @@ export const getBeastsByArea = async (search: string | Area) => {
     // TODO: the empty response for this endpoint is [ 'none' ]. Remove it for an empty array
 
     return beasts.map(beast => new BeastSearchResult(beast))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -99,8 +99,8 @@ export const getBeastsByFirstLetter = async (search: Letter) => {
     // TODO: either trim, or clean up the "NPC" objects in the results
 
     return beasts.map(beast => new BeastSearchResult(beast))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -127,8 +127,8 @@ export const getBeastsByLevelRange = async (min: number, max: number) => {
     }).json<Jagex.Bestiary.BeastBySearch[]>()
 
     return beasts.map(beast => new BeastSearchResult(beast))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -160,8 +160,8 @@ export const getBeastsBySlayerCategory = async (
     }).json<Jagex.Bestiary.BeastBySearch[]>()
 
     return beasts.map(beast => new BeastSearchResult(beast))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -178,8 +178,8 @@ export const getBeastsByTerms = async (search: string) => {
     }).json<Jagex.Bestiary.BeastBySearch[]>()
 
     return beasts.map(beast => new BeastSearchResult(beast))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -206,8 +206,8 @@ export const getBeastsByWeakness = async (search: number | Weakness) => {
     }).json<Jagex.Bestiary.BeastBySearch[]>()
 
     return beasts.map(beast => new BeastSearchResult(beast))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -220,8 +220,8 @@ export const getSlayerCategories = async () => {
     return Object.values(categories).map(
       category => new SlayerCategory(category)
     )
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -232,7 +232,7 @@ export const getWeaknesses = async () => {
     >()
 
     return Object.values(weaknesses).map(i => new Weakness(i))
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }

@@ -34,7 +34,7 @@ export const getPlayer = async (
     const player = parseJagexPlayerToJSON(response.body)
 
     return new Player(name, player)
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
