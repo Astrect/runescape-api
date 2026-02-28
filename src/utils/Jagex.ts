@@ -207,6 +207,7 @@ const formatOSRSActivities = (activitiesArray: string[]) => {
     pvp_arena: { rank: 0, count: 0 },
     soul_wars: { rank: 0, count: 0 },
     rifts_closed: { rank: 0, count: 0 },
+    colosseum_glory: { rank: 0, count: 0 },
   }
 
   osrs.hiscores.activities.map((activityName, index) => {
