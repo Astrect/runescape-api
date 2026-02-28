@@ -6,6 +6,7 @@ export const hiscores = {
     ultimate: `http://services.runescape.com/m=hiscore_oldschool_ultimate/index_lite.ws?player=`,
     deadman: `http://services.runescape.com/m=hiscore_oldschool_deadman/index_lite.ws?player=`,
     seasonal: `http://services.runescape.com/m=hiscore_oldschool_seasonal/index_lite.ws?player=`,
+    tournament: `http://services.runescape.com/m=hiscore_oldschool_tournament/index_lite.ws?player=`
   },
   activities: [
     "league_points",
@@ -73,6 +74,7 @@ export const hiscores = {
     "ultimate",
     "deadman",
     "seasonal",
+    "tournament"
   ] as const,
   skills: [
     "overall",
