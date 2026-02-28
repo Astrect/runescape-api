@@ -284,6 +284,7 @@ const formatOSRSBosses = (activitiesArray: string[]) => {
     vetion: { rank: 0, count: 0 },
     vorkath: { rank: 0, count: 0 },
     wintertodt: { rank: 0, count: 0 },
+    yama: { rank: 0, count: 0 },
     zalcano: { rank: 0, count: 0 },
     zulrah: { rank: 0, count: 0 },
   }
