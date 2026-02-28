@@ -336,6 +336,7 @@ export const hiscores = {
     "divination",
     "invention",
     "archaeology",
+    "necromancy"
   ] as const,
 }
 export const miscellaneous = {
