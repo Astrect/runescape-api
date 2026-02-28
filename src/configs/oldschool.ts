@@ -12,6 +12,7 @@ export const hiscores = {
   activities: [
     "grid_points",
     "league_points",
+    "deadman_points",
     "bounty_hunter_hunter",
     "bounty_hunter_rogue",
     "clue_scrolls_all",

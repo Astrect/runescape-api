@@ -191,6 +191,7 @@ const formatOSRSActivities = (activitiesArray: string[]) => {
   const activities: Jagex.Hiscores.OSRSPlayerActivites = {
     grid_points: { rank: 0, count: 0 },
     league_points: { rank: 0, count: 0 },
+    deadman_points: { rank: 0, count: 0 },
     bounty_hunter_hunter: { rank: 0, count: 0 },
     bounty_hunter_rogue: { rank: 0, count: 0 },
     clue_scrolls_all: { rank: 0, count: 0 },
