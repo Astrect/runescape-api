@@ -27,7 +27,7 @@ export const getTotalUsers = async () => {
     >()
 
     return response.accounts
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }

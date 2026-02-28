@@ -21,7 +21,7 @@ export const getMembers = async (search: string) => {
     return membersArray.map(
       (member: Jagex.Clan.Member) => new ClanMember(member)
     )
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }

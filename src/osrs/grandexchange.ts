@@ -16,8 +16,8 @@ export const getItem = async (id: number) => {
     }).json<{ item: Jagex.GrandExchange.Item }>()
 
     return new Item(response.item)
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
 
@@ -32,7 +32,7 @@ export const getItemGraph = async (id: number) => {
     ).json<Jagex.GrandExchange.ItemGraph>()
 
     return new ItemGraph(id, response)
-  } catch (error) {
-    throw new Error(error)
+  } catch (error: unknown) {
+    throw error
   }
 }
