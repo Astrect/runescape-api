@@ -16,12 +16,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout full history
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # ✅ Ensure merge came from development
+      # Ensure the merge came from development
       - name: Ensure merge came from development
         id: check_merge
         run: |
@@ -33,51 +34,59 @@ jobs:
             echo "merged=false" >> $GITHUB_OUTPUT
           fi
 
+      # Stop workflow if not a development merge
       - name: Stop if not a development merge
         if: steps.check_merge.outputs.merged != 'true'
         run: |
           echo "Not a development merge. Skipping."
           exit 0
 
+      # Setup Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      # ✅ Build / format / lint
-      - run: npm install
+      # Build / format / lint
+      - run: npm ci
       - run: npm run format
       - run: npm run lint
       - run: npm run build
 
-      # ✅ Detect bump type from commit message
+      # Detect version bump type from commit title or body
       - name: Detect version bump type
         id: bump_type
         run: |
-          COMMIT_MSG=$(git log -1 --pretty=%B)
+          COMMIT_TITLE=$(git log -1 --pretty=%s)
+          COMMIT_BODY=$(git log -1 --pretty=%B)
+          COMMIT_MSG="$COMMIT_TITLE"$'\n'"$COMMIT_BODY"
+
           if echo "$COMMIT_MSG" | grep -qi "^refactor:"; then
-            echo "type=major" >> $GITHUB_OUTPUT
+            BUMP_TYPE="major"
           elif echo "$COMMIT_MSG" | grep -qi "^feat:"; then
-            echo "type=minor" >> $GITHUB_OUTPUT
+            BUMP_TYPE="minor"
           elif echo "$COMMIT_MSG" | grep -qi "^fix:"; then
-            echo "type=patch" >> $GITHUB_OUTPUT
+            BUMP_TYPE="patch"
           else
-            echo "type=patch" >> $GITHUB_OUTPUT
+            BUMP_TYPE="patch"
           fi
 
-      # ✅ Bump version locally and create a tag (do NOT commit to master)
-      - name: Bump version and create tag
+          echo "type=$BUMP_TYPE" >> $GITHUB_OUTPUT
+
+      # Bump version locally without committing (avoids dirty working dir errors)
+      - name: Bump version locally
         id: version
         run: |
-          # bump version locally and create tag
-          NEW_VERSION=$(npm version ${{ steps.bump_type.outputs.type }} -m "release: %s")
+          NEW_VERSION=$(npm version ${{ steps.bump_type.outputs.type }} --no-git-tag-version)
           echo "version=${NEW_VERSION#v}" >> $GITHUB_OUTPUT
 
-      # ✅ Push tag only (safe for protected branch)
-      - name: Push tag
-        run: git push origin --tags
+      # Create and push tag only (safe for protected branch)
+      - name: Create and push tag
+        run: |
+          git tag v${{ steps.version.outputs.version }}
+          git push origin v${{ steps.version.outputs.version }}
 
-      # ✅ Create GitHub Release
+      # Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -86,6 +95,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ✅ Publish to npm
+      # Publish to npm
       - name: Publish to npm
         run: npm publish --provenance --access public
