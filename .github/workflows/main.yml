@@ -63,6 +63,7 @@ jobs:
             echo "type=patch" >> $GITHUB_OUTPUT
           else
             echo "type=patch" >> $GITHUB_OUTPUT
+          fi
 
       # ✅ Bump version locally and create a tag (do NOT commit to master)
       - name: Bump version and create tag
