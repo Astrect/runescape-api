@@ -98,4 +98,6 @@ jobs:
 
       # Publish to npm
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: "" # Clear placeholder set by setup-node to enable OIDC
