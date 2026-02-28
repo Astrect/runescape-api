@@ -48,7 +48,7 @@ jobs:
           node-version: 22
 
       # Build / format / lint
-      - run: npm ci
+      - run: npm install
       - run: npm run format
       - run: npm run lint
       - run: npm run build
