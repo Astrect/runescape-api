@@ -272,6 +272,7 @@ export const hiscores = {
     normal: `http://services.runescape.com/m=hiscore/index_lite.ws`,
     ironman: `http://services.runescape.com/m=hiscore_ironman/index_lite.ws`,
     hardcore: `http://services.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws`,
+    leagues: `https://secure.runescape.com/m=hiscore_leagues/index_lite.ws`
   },
   activities: [
     "bounty_hunters",
@@ -305,7 +306,7 @@ export const hiscores = {
     "clue_scrolls_elite",
     "clue_scrolls_master",
   ] as const,
-  gamemodes: ["normal", "ironman", "hardcore"] as const,
+  gamemodes: ["normal", "ironman", "hardcore", "leagues"] as const,
   skills: [
     "overall",
     "attack",
@@ -336,6 +337,7 @@ export const hiscores = {
     "divination",
     "invention",
     "archaeology",
+    "necromancy"
   ] as const,
 }
 export const miscellaneous = {

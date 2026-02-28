@@ -31,3 +31,17 @@ test("Fetch ultimate ironman player by name (string)", async () => {
         expect(data).toBeInstanceOf(Player)
     })
 })
+
+test("Fetch tournament player by name (string)", async () => {
+    return hiscores.getPlayer("240", "tournament").then(data => {
+        expect(data).toBeDefined()
+        expect(data).toBeInstanceOf(Player)
+    })
+})
+
+test("Fetch fresh start world player by name (string)", async () => {
+    return hiscores.getPlayer("Gulag", "fresh_start").then(data => {
+        expect(data).toBeDefined()
+        expect(data).toBeInstanceOf(Player)
+    })
+})

@@ -35,6 +35,7 @@ const defaultSkillTree: Jagex.Hiscores.PlayerSkills = {
   divination: { rank: 0, level: 1, experience: 0 },
   invention: { rank: 0, level: 1, experience: 0 },
   archaeology: { rank: 0, level: 1, experience: 0 },
+  necromancy: { rank: 0, level: 1, experience: 0 },
 }
 const separateIntoLines = (jagexPlayer: string): string[] => {
   return jagexPlayer.split("\n")
@@ -172,6 +173,7 @@ const formatOSRSSkills = (skillsArray: string[]) => {
     runecrafting: { rank: 0, level: 1, experience: 0 },
     hunter: { rank: 0, level: 1, experience: 0 },
     construction: { rank: 0, level: 1, experience: 0 },
+    sailing: { rank: 0, level: 1, experience: 0 },
   }
 
   osrs.hiscores.skills.map((skillName, index) => {
@@ -187,9 +189,13 @@ const formatOSRSSkills = (skillsArray: string[]) => {
 }
 const formatOSRSActivities = (activitiesArray: string[]) => {
   const activities: Jagex.Hiscores.OSRSPlayerActivites = {
+    grid_points: { rank: 0, count: 0 },
     league_points: { rank: 0, count: 0 },
+    deadman_points: { rank: 0, count: 0 },
     bounty_hunter_hunter: { rank: 0, count: 0 },
     bounty_hunter_rogue: { rank: 0, count: 0 },
+    bounty_hunter_hunter_legacy: { rank: 0, count: 0 },
+    bounty_hunter_rogue_legacy: { rank: 0, count: 0 },
     clue_scrolls_all: { rank: 0, count: 0 },
     clue_scrolls_beginner: { rank: 0, count: 0 },
     clue_scrolls_easy: { rank: 0, count: 0 },
@@ -198,6 +204,11 @@ const formatOSRSActivities = (activitiesArray: string[]) => {
     clue_scrolls_elite: { rank: 0, count: 0 },
     clue_scrolls_master: { rank: 0, count: 0 },
     last_man_standing: { rank: 0, count: 0 },
+    pvp_arena: { rank: 0, count: 0 },
+    soul_wars: { rank: 0, count: 0 },
+    rifts_closed: { rank: 0, count: 0 },
+    colosseum_glory: { rank: 0, count: 0 },
+    collections_logged: { rank: 0, count: 0 },
   }
 
   osrs.hiscores.activities.map((activityName, index) => {
@@ -211,9 +222,14 @@ const formatOSRSBosses = (activitiesArray: string[]) => {
   const bosses: Jagex.Hiscores.OSRSPlayerBosses = {
     abyssal_sire: { rank: 0, count: 0 },
     alchemical_hydra: { rank: 0, count: 0 },
+    amoxliatl: { rank: 0, count: 0 },
+    araxxor: { rank: 0, count: 0 },
+    artio: { rank: 0, count: 0 },
     barrows_chests: { rank: 0, count: 0 },
+    brutus: { rank: 0, count: 0 },
     bryophyta: { rank: 0, count: 0 },
     callisto: { rank: 0, count: 0 },
+    cal_varion: { rank: 0, count: 0 },
     cerberus: { rank: 0, count: 0 },
     chambers_of_xeric: { rank: 0, count: 0 },
     chambers_of_xeric_challenge_mode: { rank: 0, count: 0 },
@@ -226,6 +242,8 @@ const formatOSRSBosses = (activitiesArray: string[]) => {
     dagannoth_rex: { rank: 0, count: 0 },
     dagannoth_supreme: { rank: 0, count: 0 },
     deranged_archaeologist: { rank: 0, count: 0 },
+    doom_of_Mokhaiotl: { rank: 0, count: 0 },
+    duke_sucellus: { rank: 0, count: 0 },
     general_graardor: { rank: 0, count: 0 },
     giant_mole: { rank: 0, count: 0 },
     grotesque_guardians: { rank: 0, count: 0 },
@@ -236,21 +254,38 @@ const formatOSRSBosses = (activitiesArray: string[]) => {
     kreearra: { rank: 0, count: 0 },
     kril_tsutsaroth: { rank: 0, count: 0 },
     mimic: { rank: 0, count: 0 },
+    nex: { rank: 0, count: 0 },
     nightmare: { rank: 0, count: 0 },
+    phosanis_nightmare: { rank: 0, count: 0 },
     obor: { rank: 0, count: 0 },
+    phantom_muspah: { rank: 0, count: 0 },
     sarachnis: { rank: 0, count: 0 },
     scorpia: { rank: 0, count: 0 },
+    scurrius: { rank: 0, count: 0 },
+    shellbane_gryphon: { rank: 0, count: 0 },
     skotizo: { rank: 0, count: 0 },
+    sol_heredit: { rank: 0, count: 0 },
+    spindel: { rank: 0, count: 0 },
+    tempeross: { rank: 0, count: 0 },
     the_gauntlet: { rank: 0, count: 0 },
     the_corrupted_gauntlet: { rank: 0, count: 0 },
+    the_hueycoatl: { rank: 0, count: 0 },
+    the_leviathan: { rank: 0, count: 0 },
+    the_royal_titans: { rank: 0, count: 0 },
+    the_whisperer: { rank: 0, count: 0 },
     theatre_of_blood: { rank: 0, count: 0 },
+    theatre_of_blood_hard_mode: { rank: 0, count: 0 },
     thermonuclear_smoke_devil: { rank: 0, count: 0 },
+    tombs_of_amascut: { rank: 0, count: 0 },
+    tombs_of_amascut_expert_mode: { rank: 0, count: 0 },
     tzkal_zuk: { rank: 0, count: 0 },
     tztok_jad: { rank: 0, count: 0 },
+    vardorvis: { rank: 0, count: 0 },
     venenatis: { rank: 0, count: 0 },
     vetion: { rank: 0, count: 0 },
     vorkath: { rank: 0, count: 0 },
     wintertodt: { rank: 0, count: 0 },
+    yama: { rank: 0, count: 0 },
     zalcano: { rank: 0, count: 0 },
     zulrah: { rank: 0, count: 0 },
   }
@@ -274,8 +309,8 @@ export const parseJagexOSRSPlayerToJSON = (
   const [bossesStartIndex, bossesEndIndex] = [
     osrs.hiscores.skills.length + osrs.hiscores.activities.length,
     osrs.hiscores.skills.length +
-      osrs.hiscores.activities.length +
-      osrs.hiscores.bosses.length,
+    osrs.hiscores.activities.length +
+    osrs.hiscores.bosses.length,
   ]
 
   const activities = formatOSRSActivities([

@@ -21,3 +21,10 @@ test("Fetch hardcore player by name (string)", async () => {
         expect(data).toBeInstanceOf(Player)
     })
 })
+
+test("Fetch Leagues player by name (string)", async () => {
+    return hiscores.getPlayer("Astrect", "leagues").then(data => {
+        expect(data).toBeDefined()
+        expect(data).toBeInstanceOf(Player)
+    })
+})
