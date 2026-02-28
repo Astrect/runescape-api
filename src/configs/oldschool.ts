@@ -27,6 +27,7 @@ export const hiscores = {
     "last_man_standing",
     "pvp_arena",
     "soul_wars",
+    "rifts_closed",
   ] as const,
   bosses: [
     "abyssal_sire",
