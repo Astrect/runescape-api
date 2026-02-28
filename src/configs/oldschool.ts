@@ -99,6 +99,7 @@ export const hiscores = {
     "runecrafting",
     "hunter",
     "construction",
+    "sailing"
   ] as const,
 }
 export const grandexchange = {

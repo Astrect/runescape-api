@@ -173,6 +173,7 @@ const formatOSRSSkills = (skillsArray: string[]) => {
     runecrafting: { rank: 0, level: 1, experience: 0 },
     hunter: { rank: 0, level: 1, experience: 0 },
     construction: { rank: 0, level: 1, experience: 0 },
+    sailing: { rank: 0, level: 1, experience: 0 },
   }
 
   osrs.hiscores.skills.map((skillName, index) => {
