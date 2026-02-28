@@ -65,6 +65,7 @@ export const hiscores = {
     "kraken",
     "kreearra",
     "kril_tsutsaroth",
+    "lunar_chests",
     "mimic",
     "nex",
     "nightmare",
