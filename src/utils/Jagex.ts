@@ -253,6 +253,7 @@ const formatOSRSBosses = (activitiesArray: string[]) => {
     kraken: { rank: 0, count: 0 },
     kreearra: { rank: 0, count: 0 },
     kril_tsutsaroth: { rank: 0, count: 0 },
+    lunar_chests: { rank: 0, count: 0 },
     mimic: { rank: 0, count: 0 },
     nex: { rank: 0, count: 0 },
     nightmare: { rank: 0, count: 0 },
