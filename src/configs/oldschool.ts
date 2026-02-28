@@ -15,6 +15,8 @@ export const hiscores = {
     "deadman_points",
     "bounty_hunter_hunter",
     "bounty_hunter_rogue",
+    "bounty_hunter_hunter_legacy",
+    "bounty_hunter_rogue_legacy",
     "clue_scrolls_all",
     "clue_scrolls_beginner",
     "clue_scrolls_easy",

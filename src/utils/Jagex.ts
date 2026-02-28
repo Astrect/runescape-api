@@ -194,6 +194,8 @@ const formatOSRSActivities = (activitiesArray: string[]) => {
     deadman_points: { rank: 0, count: 0 },
     bounty_hunter_hunter: { rank: 0, count: 0 },
     bounty_hunter_rogue: { rank: 0, count: 0 },
+    bounty_hunter_hunter_legacy: { rank: 0, count: 0 },
+    bounty_hunter_rogue_legacy: { rank: 0, count: 0 },
     clue_scrolls_all: { rank: 0, count: 0 },
     clue_scrolls_beginner: { rank: 0, count: 0 },
     clue_scrolls_easy: { rank: 0, count: 0 },
