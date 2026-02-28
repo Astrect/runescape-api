@@ -38,6 +38,7 @@ export const hiscores = {
     "araxxor",
     "artio",
     "barrows_chests",
+    "brutus",
     "bryophyta",
     "callisto",
     "cal_varion",

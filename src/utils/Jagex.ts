@@ -226,6 +226,7 @@ const formatOSRSBosses = (activitiesArray: string[]) => {
     araxxor: { rank: 0, count: 0 },
     artio: { rank: 0, count: 0 },
     barrows_chests: { rank: 0, count: 0 },
+    brutus: { rank: 0, count: 0 },
     bryophyta: { rank: 0, count: 0 },
     callisto: { rank: 0, count: 0 },
     cal_varion: { rank: 0, count: 0 },
