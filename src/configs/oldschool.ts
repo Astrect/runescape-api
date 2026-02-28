@@ -25,6 +25,7 @@ export const hiscores = {
     "clue_scrolls_elite",
     "clue_scrolls_master",
     "last_man_standing",
+    "pvp_arena",
   ] as const,
   bosses: [
     "abyssal_sire",
