@@ -26,9 +26,7 @@ jobs:
         id: check_merge
         run: |
           COMMIT_MSG=$(git log -1 --pretty=%B)
-
           echo "$COMMIT_MSG"
-
           if echo "$COMMIT_MSG" | grep -q "development"; then
             echo "merged=true" >> $GITHUB_OUTPUT
           else
@@ -45,6 +43,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      # ✅ Build / format / lint
       - run: npm install
       - run: npm run format
       - run: npm run lint
@@ -55,7 +55,6 @@ jobs:
         id: bump_type
         run: |
           COMMIT_MSG=$(git log -1 --pretty=%B)
-
           if echo "$COMMIT_MSG" | grep -qi "^refactor:"; then
             echo "type=major" >> $GITHUB_OUTPUT
           elif echo "$COMMIT_MSG" | grep -qi "^feat:"; then
@@ -64,37 +63,30 @@ jobs:
             echo "type=patch" >> $GITHUB_OUTPUT
           else
             echo "type=patch" >> $GITHUB_OUTPUT
-          fi
 
-      # ✅ Bump version
-      - name: Bump version
+      # ✅ Bump version locally and create a tag (do NOT commit to master)
+      - name: Bump version and create tag
+        id: version
         run: |
-          npm version ${{ steps.bump_type.outputs.type }} --no-git-tag-version
+          # bump version locally and create tag
+          NEW_VERSION=$(npm version ${{ steps.bump_type.outputs.type }} -m "release: %s")
+          echo "version=${NEW_VERSION#v}" >> $GITHUB_OUTPUT
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add package.json
-
-          git commit -m "ci: bump ${{ steps.bump_type.outputs.type }} version [skip ci]"
-          git push
-
-      # ✅ Get new version
-      - name: Get final version
-        id: final_version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
-      # ✅ Create tag
-      - name: Create tag
-        run: |
-          git tag v${{ steps.final_version.outputs.version }}
-          git push origin v${{ steps.final_version.outputs.version }}
+      # ✅ Push tag only (safe for protected branch)
+      - name: Push tag
+        run: git push origin --tags
 
       # ✅ Create GitHub Release
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.final_version.outputs.version }}
-          name: Release v${{ steps.final_version.outputs.version }}
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ✅ Publish to npm
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
