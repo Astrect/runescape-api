@@ -10,6 +10,7 @@ export const hiscores = {
     fresh_start: `http://services.runescape.com/m=hiscore_oldschool_fresh_start/index_lite.ws?player=`
   },
   activities: [
+    "grid_points",
     "league_points",
     "bounty_hunter_hunter",
     "bounty_hunter_rogue",
